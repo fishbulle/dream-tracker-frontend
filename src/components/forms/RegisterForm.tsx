@@ -2,8 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, FieldValues } from 'react-hook-form';
 import { z } from 'zod';
 import { registerUser } from '../../api';
-import { useState } from 'react';
-import { useFormContext } from '../../context/RegisterFormContext';
+import { FormField } from './FormField';
+import { Button } from 'react-bootstrap';
 
 const schema = z.object({
   firstName: z.string().min(1, 'First name is required.'),
@@ -29,23 +29,15 @@ export function RegisterForm() {
   } = useForm<FormData>({
     resolver: zodResolver(schema)
   });
-  const { formData } = useFormContext();
-  const [ username, setUsername ] = useState<string>('');
 
   async function onSubmit(data: FieldValues) {
     try {
-      const response = await registerUser(
-        formData.firstName,
-        formData.lastName,
+      await registerUser(
+        data.firstName,
+        data.lastName,
         data.email,
         data.password
       );
-
-      if (response == 200 || response == 201) {
-        setUsername(data.email);
-      } else {
-        // method for handling user already exists
-      }
     } catch (error) {
       console.error(error);
     }
@@ -53,7 +45,43 @@ export function RegisterForm() {
 
   return (
     <>
-        // form
+      <form className='my-3 my-md-5 px-4 text-start' onSubmit={handleSubmit(onSubmit)}>
+        <FormField
+          fieldName='firstName' 
+          label='First name' 
+          inputType='text' 
+          fieldError={errors.firstName} 
+          register={register} />
+        <FormField
+          fieldName='lastName' 
+          label='Last name' 
+          inputType='text' 
+          fieldError={errors.lastName} 
+          register={register} />
+        <FormField
+          fieldName='email' 
+          label='Email'
+          labelDescription='Will be used as your username.' 
+          inputType='email' 
+          fieldError={errors.email} 
+          register={register} />
+        <FormField
+          fieldName='password' 
+          label='Password' 
+          labelDescription='Needs to contain at least 8 characters with 1 number, 1 uppercase & 1 lowercase letter.'
+          inputType='password' 
+          fieldError={errors.password} 
+          register={register} />
+        <FormField
+          fieldName='confirmPassword' 
+          label='Confirm password' 
+          inputType='password' 
+          fieldError={errors.confirmPassword} 
+          register={register} />
+        <Button type="submit" className="btn w-100" aria-label='Register button'>
+          Register
+        </Button>
+      </form>
     </>
   );
 }
