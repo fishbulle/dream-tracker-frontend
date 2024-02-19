@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import api from './api';
 
 export async function registerUser(
@@ -24,7 +25,11 @@ export async function registerUser(
 
 export async function logIn(
   email: string,
-  password: string
+  password: string,
+  setIsAuthenticated: Dispatch<SetStateAction<boolean>>,
+  setToken: Dispatch<SetStateAction<string>>,
+  setUserId: Dispatch<SetStateAction<string>>,
+  setUsername: Dispatch<SetStateAction<string>>
 ) {
   try {
     const response = await api.post(
@@ -36,8 +41,11 @@ export async function logIn(
     );
 
     if (response.status == 200) {
-      sessionStorage.setItem('isAuthenticated', 'true'),
-      sessionStorage.setItem('token', response.data.token);
+      setIsAuthenticated(true),
+      setToken(response.data.token),
+      setUserId(response.data.userId),
+      setUsername(response.data.username);
+      return response;
     } 
   } catch (error) {
     console.error(error);

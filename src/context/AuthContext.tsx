@@ -7,6 +7,8 @@ interface IAuthContext {
     setUserId: Dispatch<SetStateAction<string>>;
     username: string;
     setUsername: Dispatch<SetStateAction<string>>;
+    token: string;
+    setToken: Dispatch<SetStateAction<string>>;
 }
 
 const defaultAuthContext: IAuthContext = {
@@ -14,11 +16,11 @@ const defaultAuthContext: IAuthContext = {
   setIsAuthenticated: () => {
   },
   userId: '',
-  setUserId: () => {
-  },
+  setUserId: () => {},
   username: '',
-  setUsername: () => {
-  }
+  setUsername: () => {},
+  token: '',
+  setToken: () => {}
 };
 
 export const AuthContext = createContext<IAuthContext>(defaultAuthContext);
@@ -27,6 +29,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [ isAuthenticated, setIsAuthenticated ] = useState(false);
   const [ userId, setUserId ] = useState('');
   const [ username, setUsername ] = useState('');
+  const [ token, setToken ] = useState('');
 
   const authContextValue = {
     isAuthenticated,
@@ -34,7 +37,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     userId,
     setUserId,
     username,
-    setUsername
+    setUsername,
+    token,
+    setToken
   };
 
   return (
