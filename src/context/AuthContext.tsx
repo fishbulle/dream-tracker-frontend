@@ -13,8 +13,7 @@ interface IAuthContext {
 
 const defaultAuthContext: IAuthContext = {
     isAuthenticated: false,
-    setIsAuthenticated: () => {
-    },
+    setIsAuthenticated: () => {},
     userId: '',
     setUserId: () => {},
     username: '',
