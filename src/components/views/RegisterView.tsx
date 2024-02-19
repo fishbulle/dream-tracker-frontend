@@ -1,6 +1,8 @@
+import { RegisterForm } from '../forms/RegisterForm';
+
 export function RegisterView() {
 
-  return (
-    <></>
-  );
+    return (
+        <RegisterForm />
+    );
 }

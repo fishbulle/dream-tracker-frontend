@@ -8,69 +8,69 @@ import { FormField } from './FormField';
 import { Button } from 'react-bootstrap';
 
 const schema = z.object({
-  email: z
-    .string()
-    .min(5, 'Email is required.')
-    .email({ message: 'Please provide a valid email address.' }),
-  password: z
-    .string()
-    .min(1, 'Password is required.'),
+    email: z
+        .string()
+        .min(5, 'Email is required.')
+        .email({ message: 'Please provide a valid email address.' }),
+    password: z
+        .string()
+        .min(1, 'Password is required.'),
 });
 
 type FormData = z.infer<typeof schema>;
 
 export function LogInForm() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<FormData>({
-    resolver: zodResolver(schema)
-  });
-  const [ errorMessage, setErrorMessage ] = useState<string | null>(null);
-  //   const navigation = useNavigate();
-  const { setIsAuthenticated,
-    setToken,
-    setUserId,
-    setUsername
-  } = useContext(AuthContext);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors }
+    } = useForm<FormData>({
+        resolver: zodResolver(schema)
+    });
+    const [ errorMessage, setErrorMessage ] = useState<string | null>(null);
+    //   const navigation = useNavigate();
+    const { setIsAuthenticated,
+        setToken,
+        setUserId,
+        setUsername
+    } = useContext(AuthContext);
 
-  function onSubmit(data: FieldValues) {
-    logIn(
-      data.email,
-      data.password, 
-      setIsAuthenticated, 
-      setToken,
-      setUserId,
-      setUsername).then(response => {
-      if (response?.status == 200) {
-        console.log('yiiihaw');
-      } else {
-        setErrorMessage('Incorrect credentials, try again!');
-      }
-    }).catch(error => console.error(error.message));
-  }
+    function onSubmit(data: FieldValues) {
+        logIn(
+            data.email,
+            data.password, 
+            setIsAuthenticated, 
+            setToken,
+            setUserId,
+            setUsername).then(response => {
+            if (response?.status == 200) {
+                console.log('yiiihaw');
+            } else {
+                setErrorMessage('Incorrect credentials, try again!');
+            }
+        }).catch(error => console.error(error.message));
+    }
 
-  return (
-    <form className='my-3 my-md-5 px-4 text-start' onSubmit={handleSubmit(onSubmit)}>
-      {errorMessage && <div className="text-danger my-1">{errorMessage}</div>}
-      <FormField
-        fieldName="email"
-        label="Email"
-        inputType="email"
-        fieldError={errors.email}
-        customError={errorMessage}
-        register={register}
-      />
-      <FormField
-        fieldName="password"
-        label="Password"
-        inputType="password"
-        fieldError={errors.password}
-        customError={errorMessage}
-        register={register}
-      />
-      <Button type="submit" className="btn w-100">Sign in</Button>
-    </form>
-  );
+    return (
+        <form className='my-3 my-md-5 px-4 text-start' onSubmit={handleSubmit(onSubmit)}>
+            {errorMessage && <div className="text-danger my-1">{errorMessage}</div>}
+            <FormField
+                fieldName="email"
+                label="Email"
+                inputType="email"
+                fieldError={errors.email}
+                customError={errorMessage}
+                register={register}
+            />
+            <FormField
+                fieldName="password"
+                label="Password"
+                inputType="password"
+                fieldError={errors.password}
+                customError={errorMessage}
+                register={register}
+            />
+            <Button type="submit" className="btn w-100">Sign in</Button>
+        </form>
+    );
 }

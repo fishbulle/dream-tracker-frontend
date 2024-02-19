@@ -12,39 +12,39 @@ interface IAuthContext {
 }
 
 const defaultAuthContext: IAuthContext = {
-  isAuthenticated: false,
-  setIsAuthenticated: () => {
-  },
-  userId: '',
-  setUserId: () => {},
-  username: '',
-  setUsername: () => {},
-  token: '',
-  setToken: () => {}
+    isAuthenticated: false,
+    setIsAuthenticated: () => {
+    },
+    userId: '',
+    setUserId: () => {},
+    username: '',
+    setUsername: () => {},
+    token: '',
+    setToken: () => {}
 };
 
 export const AuthContext = createContext<IAuthContext>(defaultAuthContext);
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [ isAuthenticated, setIsAuthenticated ] = useState(false);
-  const [ userId, setUserId ] = useState('');
-  const [ username, setUsername ] = useState('');
-  const [ token, setToken ] = useState('');
+    const [ isAuthenticated, setIsAuthenticated ] = useState(false);
+    const [ userId, setUserId ] = useState('');
+    const [ username, setUsername ] = useState('');
+    const [ token, setToken ] = useState('');
 
-  const authContextValue = {
-    isAuthenticated,
-    setIsAuthenticated,
-    userId,
-    setUserId,
-    username,
-    setUsername,
-    token,
-    setToken
-  };
+    const authContextValue = {
+        isAuthenticated,
+        setIsAuthenticated,
+        userId,
+        setUserId,
+        username,
+        setUsername,
+        token,
+        setToken
+    };
 
-  return (
-    <AuthContext.Provider value={authContextValue}>
-      {children}
-    </AuthContext.Provider>
-  );
+    return (
+        <AuthContext.Provider value={authContextValue}>
+            {children}
+        </AuthContext.Provider>
+    );
 };

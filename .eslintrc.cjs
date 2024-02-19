@@ -20,7 +20,7 @@ module.exports = {
     "@typescript-eslint/no-unused-vars": ["warn"],
     'quotes': ['error', 'single'],
     'semi': ['error', 'always'],
-    'indent': ['error', 2],
+    'indent': ['error', 4],
     'no-multi-spaces': ['error'],
     '@stylistic/js/object-curly-spacing': ["error", "always", { "objectsInObjects": false }],
     '@stylistic/js/object-curly-spacing': ["error", "always", { "arraysInObjects": false }],

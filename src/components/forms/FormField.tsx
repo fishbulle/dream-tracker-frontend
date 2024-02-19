@@ -24,45 +24,45 @@ interface IFormField<T extends FieldValues> {
 }
 
 export function FormField<T extends FieldValues>({
-  fieldError,
-  customError,
-  register,
-  label,
-  fieldName,
-  inputType,
-  labelDescription,
-  placeholder,
-  defaultValue,
-  min
+    fieldError,
+    customError,
+    register,
+    label,
+    fieldName,
+    inputType,
+    labelDescription,
+    placeholder,
+    defaultValue,
+    min
 }: IFormField<T>) {
     
-  return (
-    <>
-      <div className="mb-3">
-        <label htmlFor={fieldName} className="form-label fw-semibold">
-          {label}
-          <div className="form-text">
-            {labelDescription}
-          </div>
-        </label>
-        {
-          fieldError && 
+    return (
+        <>
+            <div className="mb-3">
+                <label htmlFor={fieldName} className="form-label fw-semibold">
+                    {label}
+                    <div className="form-text">
+                        {labelDescription}
+                    </div>
+                </label>
+                {
+                    fieldError && 
           <div className="text-danger my-1">
-            {fieldError.message}
+              {fieldError.message}
           </div>
-        }
-        {
-          <input
-            {...register(fieldName as Path<T>)}
-            type={inputType}
-            min={min}
-            className={fieldError || customError != undefined ? 'form-control is-invalid' : 'form-control border-dark-purple'}
-            id={fieldName}
-            placeholder={placeholder}
-            defaultValue={defaultValue}
-          />
-        }
-      </div>
-    </>
-  );
+                }
+                {
+                    <input
+                        {...register(fieldName as Path<T>)}
+                        type={inputType}
+                        min={min}
+                        className={fieldError || customError != undefined ? 'form-control is-invalid' : 'form-control border-dark-purple'}
+                        id={fieldName}
+                        placeholder={placeholder}
+                        defaultValue={defaultValue}
+                    />
+                }
+            </div>
+        </>
+    );
 }
