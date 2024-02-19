@@ -68,7 +68,8 @@ export function RegisterForm() {
         <FormField
           fieldName='password' 
           label='Password' 
-          labelDescription='Needs to contain at least 8 characters with 1 number, 1 uppercase & 1 lowercase letter.'
+          // TODO make this a info button?
+          labelDescription='At least 8 characters with 1 number, 1 uppercase & 1 lowercase letter.'
           inputType='password' 
           fieldError={errors.password} 
           register={register} />

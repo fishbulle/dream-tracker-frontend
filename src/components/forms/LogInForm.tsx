@@ -46,13 +46,13 @@ export function LogInForm() {
       if (response?.status == 200) {
         console.log('yiiihaw');
       } else {
-        setErrorMessage('Email or password are incorrect!');
+        setErrorMessage('Incorrect credentials, try again!');
       }
     }).catch(error => console.error(error.message));
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form className='my-3 my-md-5 px-4 text-start' onSubmit={handleSubmit(onSubmit)}>
       {errorMessage && <div className="text-danger my-1">{errorMessage}</div>}
       <FormField
         fieldName="email"
