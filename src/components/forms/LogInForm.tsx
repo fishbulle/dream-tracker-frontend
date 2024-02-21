@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { AuthContext } from '../../context/AuthContext';
-import { logIn } from '../../api';
+import { logIn } from '../../api/api';
 import { FormField } from './FormField';
 import { Button } from 'react-bootstrap';
 

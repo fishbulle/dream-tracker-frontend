@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, FieldValues } from 'react-hook-form';
 import { z } from 'zod';
-import { registerUser } from '../../api';
+import { registerUser } from '../../api/api';
 import { FormField } from './FormField';
 import { Button } from 'react-bootstrap';
 
@@ -68,7 +68,7 @@ export function RegisterForm() {
                 <FormField
                     fieldName='password' 
                     label='Password' 
-                    // TODO make this a info button?
+                    // TODO make this a info button? Or make it show inside the input while typing
                     labelDescription='At least 8 characters with 1 number, 1 uppercase & 1 lowercase letter.'
                     inputType='password' 
                     fieldError={errors.password} 
