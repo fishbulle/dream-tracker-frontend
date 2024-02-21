@@ -30,6 +30,7 @@ export function FormField<T extends FieldValues>({
     label,
     fieldName,
     inputType,
+    options,
     labelDescription,
     placeholder,
     defaultValue,
@@ -45,24 +46,48 @@ export function FormField<T extends FieldValues>({
                         {labelDescription}
                     </div>
                 </label>
-                {
-                    fieldError && 
-          <div className="text-danger my-1">
-              {fieldError.message}
-          </div>
+                { fieldError && 
+                <div className="text-danger my-1">
+                    {fieldError.message}
+                </div>
                 }
-                {
-                    <input
-                        {...register(fieldName as Path<T>)}
-                        type={inputType}
-                        min={min}
-                        className={fieldError || customError != undefined ? 'form-control is-invalid' : 'form-control border-dark-purple'}
-                        id={fieldName}
-                        placeholder={placeholder}
-                        defaultValue={defaultValue}
-                    />
-                }
+                {inputType === 'radio' && options
+                    ? getRadioButtonField()
+                    : (
+                        <input
+                            {...register(fieldName as Path<T>)}
+                            type={inputType}
+                            min={min}
+                            className={fieldError || customError != undefined ? 'form-control is-invalid' : 'form-control border-dark-purple'}
+                            id={fieldName}
+                            placeholder={placeholder}
+                            defaultValue={defaultValue}
+                        />
+                    )}
             </div>
         </>
     );
+
+    function getRadioButtonField() {
+        return <div>
+            {
+                options?.map((option) => (
+                    <div key={option.value} className="form-check form-check-inline px-0 my-1">
+                        <input
+                            {...register(fieldName as Path<T>)}
+                            type="radio"
+                            value={option.value}
+                            id={`${fieldName}-${option.value}`}
+                            className={fieldError ? 'btn-check is-invalid' : 'btn-check'}
+                        />
+                        <label
+                            htmlFor={`${fieldName}-${option.value}`}
+                            className="btn btn-outline-dark"
+                        >
+                            {option.label}
+                        </label>
+                    </div>
+                ))}
+        </div>;
+    }
 }
