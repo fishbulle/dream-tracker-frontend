@@ -2,5 +2,9 @@
   margin: 0 auto;
   text-align: center;
   font-family: Courier;
-  color: #ffffff;
+}
+
+/* background color for navbar */
+.bg-navColor {
+  background-color: #000000;
 }
