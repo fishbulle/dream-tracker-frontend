@@ -9,26 +9,30 @@ import { RegisterView } from './views/RegisterView';
 import { MyPages } from './views/MyPages';
 import { NewDream } from './components/forms/NewDreamForm';
 import { DreamArchive } from './views/Archive';
+import { NavBar } from './components/common/NavBar';
+import { Background } from './components/common/Background';
 
 function App() {
     const { isAuthenticated } = useContext(AuthContext);  
 
     return (
-        // can I use sidebar here to get it across all pages?
         <BrowserRouter>
-            <Routes>
-                <Route path='/' element={<LandingPage />} />
-                <Route path='/login' element={<LoginView />} />
-                <Route path="/register" element={<RegisterView/>}/>
-                { isAuthenticated && 
+            <Background>
+                <NavBar />
+                <Routes>
+                    <Route path='/' element={<LandingPage />} />
+                    <Route path='/login' element={<LoginView />} />
+                    <Route path="/register" element={<RegisterView/>}/>
+                    { isAuthenticated && 
                 <>
                     <Route path='/mypages' element={<MyPages />} />
                     <Route path='/newdream' element={<NewDream />} />
                     <Route path='/archive' element={<DreamArchive />} />
                     // settings (update password/email)
                 </>
-                }
-            </Routes>
+                    }
+                </Routes>
+            </Background>
         </BrowserRouter>
     );
 }

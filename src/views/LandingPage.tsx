@@ -1,11 +1,13 @@
-import { LogInForm } from '../components/forms/LogInForm';
-import { RegisterForm } from '../components/forms/RegisterForm';
 
 export function LandingPage() { 
 
     return (
         <>
-            <RegisterForm />
+          
+            <div>
+                <h1 style={{ color: 'white' }}>hello and welcome</h1>
+            </div>
+         
         </>
     );
 }
