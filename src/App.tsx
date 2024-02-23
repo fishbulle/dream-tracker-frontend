@@ -7,6 +7,8 @@ import { LoginView } from './views/LoginView';
 import { LandingPage } from './views/LandingPage';
 import { RegisterView } from './views/RegisterView';
 import { MyPages } from './views/MyPages';
+import { NewDream } from './components/forms/NewDreamForm';
+import { DreamArchive } from './views/Archive';
 
 function App() {
     const { isAuthenticated } = useContext(AuthContext);  
@@ -21,8 +23,8 @@ function App() {
                 { isAuthenticated && 
                 <>
                     <Route path='/mypages' element={<MyPages />} />
-                    // archive 
-                    // new dream
+                    <Route path='/newdream' element={<NewDream />} />
+                    <Route path='/archive' element={<DreamArchive />} />
                     // settings (update password/email)
                 </>
                 }
