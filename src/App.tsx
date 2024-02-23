@@ -17,8 +17,8 @@ function App() {
 
     return (
         <>
-            <NavBar />
             <Background>
+                <NavBar />
                 <Routes>
                     <Route path='/' element={<LandingPage />} />
                     <Route path='/login' element={<LoginView />} />
