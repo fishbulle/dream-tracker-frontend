@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 
 export const StyledDiv = styled.div`
@@ -16,17 +15,12 @@ export const ButtonDiv = styled.div`
 `;
 
 export const StyledButton = styled.button`
-   & {
     background-color: #742898;
     color: #ffffff;
     margin: 10px;
-    }
-    &:hover {
-        outline: none !important;
-        box-shadow: none !important;
-    }
+    box-shadow: none;
     &:focus {
-        outline-color: #000000 !important;
+        outline-color: none !important;
         box-shadow: none !important;
     }
 `;
