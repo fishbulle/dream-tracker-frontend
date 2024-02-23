@@ -7,8 +7,7 @@ export const StyledDiv = styled.div`
     align-items: center;
     justify-content: center; */
     background-color: rgba(250, 250, 250, 0.8);
-    padding: 50px;
-    margin: 100px;
+    padding: 20px;
     color: #000000;
     border-radius: 10px;
 `;

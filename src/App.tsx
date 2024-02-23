@@ -10,12 +10,14 @@ import { Dashboard } from './views/Dashboard';
 import { DreamArchive } from './views/Archive';
 import { Background } from './components/common/Background';
 import { NewDream } from './views/NewDream';
+import { NavBar } from './components/common/NavBar';
 
 function App() {
     const { isAuthenticated } = useContext(AuthContext);  
 
     return (
-        <BrowserRouter>
+        <>
+            <NavBar />
             <Background>
                 <Routes>
                     <Route path='/' element={<LandingPage />} />
@@ -31,7 +33,7 @@ function App() {
                     }
                 </Routes>
             </Background>
-        </BrowserRouter>
+        </>
     );
 }
 
