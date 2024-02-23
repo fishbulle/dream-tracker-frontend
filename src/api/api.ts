@@ -1,25 +1,32 @@
 import { Dispatch, SetStateAction } from 'react';
 import api from './api-root';
+import { AxiosResponse } from 'axios';
+
+type UserResponse = {
+    token: string,
+    userId: string,
+    nickname: string
+}
 
 export async function registerUser(
-    firstName: string,
-    lastName: string,
+    nickname: string,
     email: string,
     password: string
-) {
+): Promise<AxiosResponse<UserResponse> | undefined> {
     try {
-        return await api.post(
+        const response = await api.post(
             '/auth/register',
             {
-                firstName: firstName,
-                lastName: lastName,
+                nickname: nickname,
                 email: email,
                 password: password
             }
         );
+
+        return response;
+        
     } catch (error) {
-        console.error(error);
-        return error;
+        console.error('something went wrong', error);
     }
 }
 
@@ -30,7 +37,7 @@ export async function logIn(
     setToken: Dispatch<SetStateAction<string>>,
     setUserId: Dispatch<SetStateAction<string>>,
     setUsername: Dispatch<SetStateAction<string>>
-) {
+): Promise<AxiosResponse<UserResponse> | undefined> {
     try {
         const response = await api.post(
             '/auth/authenticate',
@@ -44,38 +51,40 @@ export async function logIn(
             setIsAuthenticated(true),
             setToken(response.data.token),
             setUserId(response.data.userId),
-            setUsername(response.data.username);
+            setUsername(response.data.nickname);
+            
             return response;
         } 
     } catch (error) {
-        console.error(error);
+        console.error('something went wrong', error);
     }
 }
 
 export async function newDream(
+    params: {
     title: string,
     content: string,
     category: string,
-    tags: string[],
     userId: string,
     token: string
+   }
 ) {
+    const { token, ...rest } = params;  
+    
     try {
         return await api.post(
-            '/dreams/create', {
+            '/dreams/create', 
+            rest,
+            { 
+              
                 headers: {
-                    'Authorization': `Bearer ${token}`
-                },
-                title: title,
-                content: content,
-                category: category,
-                tags: tags,
-                userId: userId
-            }
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                } 
+            },
         );
     } catch (error) {
-        console.error(error);
-        return error;
+        console.error('something went wrong', error);
     }
 }
 
@@ -99,37 +108,34 @@ export async function getAllDreamsByUser(
             return response;
         }
     } catch (error) {
-        console.error(error);
-        return error;
+        console.error('something went wrong', error);
     }
 }
 
 export async function updateDream(
+    params: {
     dreamId: string,
     userId: string,
     token: string,
     title?: string,
     content?: string,
-    category?: string,
-    tags?: string[],
+    category?: string
+    }
 ) {
+    const { token, ...rest } = params;  
+
     try {
         return await api.put(
-            '/dreams/update', {
+            '/dreams/update',
+            rest,
+            {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 },
-                dreamId: dreamId,
-                userId: userId,
-                title: title,
-                content: content,
-                category: category,
-                tags: tags
             }
         );
     } catch (error) {
-        console.error(error);
-        return error;
+        console.error('something went wrong', error);
     }
 }
 
@@ -150,7 +156,6 @@ export async function deleteDream(
             }
         );
     } catch (error) {
-        console.error(error);
-        return error;
+        console.error('something went wrong', error);
     }
 }

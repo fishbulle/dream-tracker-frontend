@@ -4,18 +4,19 @@ import { z } from 'zod';
 import { registerUser } from '../../api/api';
 import { FormField } from './FormField';
 import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const schema = z.object({
-    firstName: z.string().min(1, 'First name is required.'),
-    lastName: z.string().min(1, 'Last name is required.'),
-    email: z.string().min(5).email('Please provide a valid email address.'),
-    password: z.string().min(8, { message: 'Password must be at least 8 characters.' })
-        .regex(/\d/, { message: 'Password must contain at least one digit [0-9].' })
-        .regex(/[A-Z]/, { message: 'Password must contain at least one uppercase letter [A-Z]' })
-        .regex(/[a-z]/, { message: 'Password must contain at least one lowercase letter [a-z]' }),
+    nickname: z.string().min(2),
+    email: z.string().min(5).email('please provide a valid email address'),
+    password: z.string().min(8, { message: 'password must be at least 8 characters.' })
+        .regex(/\d/, { message: 'password must contain at least one digit [0-9].' })
+        .regex(/[A-Z]/, { message: 'password must contain at least one uppercase letter [A-Z]' })
+        .regex(/[a-z]/, { message: 'password must contain at least one lowercase letter [a-z]' }),
     confirmPassword: z.string()
 }).refine(value => value.password == value.confirmPassword, {
-    message: 'Password doesn\'t match. Try again.',
+    message: 'password doesn\'t match. try again.',
     path: [ 'confirmPassword' ]
 });
 
@@ -29,15 +30,22 @@ export function RegisterForm() {
     } = useForm<FormData>({
         resolver: zodResolver(schema)
     });
+    const [ errorMessage, setErrorMessage ] = useState<string | null>(null);
+    const navigation = useNavigate();
 
     async function onSubmit(data: FieldValues) {
         try {
-            await registerUser(
-                data.firstName,
-                data.lastName,
+            const response = await registerUser(
+                data.nickname,
                 data.email,
                 data.password
             );
+
+            if (response?.status == 200)
+                navigation('/login');
+            else 
+                setErrorMessage('there already exists an account connected to this email.');
+
         } catch (error) {
             console.error(error);
         }
@@ -47,38 +55,34 @@ export function RegisterForm() {
         <>
             <form className='my-3 my-md-5 px-4 text-start' onSubmit={handleSubmit(onSubmit)}>
                 <FormField
-                    fieldName='firstName' 
-                    label='First name' 
+                    fieldName='nickname' 
+                    label='nickname'
+                    labelDescription='this is what we will call you' 
                     inputType='text' 
-                    fieldError={errors.firstName} 
-                    register={register} />
-                <FormField
-                    fieldName='lastName' 
-                    label='Last name' 
-                    inputType='text' 
-                    fieldError={errors.lastName} 
+                    fieldError={errors.nickname} 
                     register={register} />
                 <FormField
                     fieldName='email' 
-                    label='Email'
-                    labelDescription='Will be used as your username.' 
+                    label='email'
+                    labelDescription='this is what you will log in with'
                     inputType='email' 
                     fieldError={errors.email} 
                     register={register} />
                 <FormField
                     fieldName='password' 
-                    label='Password' 
-                    // TODO make this a info button? Or make it show inside the input while typing
-                    labelDescription='At least 8 characters with 1 number, 1 uppercase & 1 lowercase letter.'
+                    label='password'
+                    labelDescription='at least 8 characters with 1 number, 1 uppercase & 1 lowercase letter'
                     inputType='password' 
                     fieldError={errors.password} 
                     register={register} />
                 <FormField
                     fieldName='confirmPassword' 
-                    label='Confirm password' 
+                    label='confirm password'
+                    labelDescription='enter the password again please'
                     inputType='password' 
                     fieldError={errors.confirmPassword} 
                     register={register} />
+                {errorMessage && <div className="text-danger my-1">{errorMessage}</div>}
                 <Button type="submit" className="btn w-100" aria-label='Register button'>
           Register
                 </Button>

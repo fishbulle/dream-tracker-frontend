@@ -6,15 +6,16 @@ import { AuthContext } from '../../context/AuthContext';
 import { logIn } from '../../api/api';
 import { FormField } from './FormField';
 import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const schema = z.object({
     email: z
         .string()
-        .min(5, 'Email is required.')
-        .email({ message: 'Please provide a valid email address.' }),
+        .min(5, 'email is required.')
+        .email({ message: 'please provide a valid email address.' }),
     password: z
         .string()
-        .min(1, 'Password is required.'),
+        .min(1, 'password is required.'),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -28,27 +29,32 @@ export function LogInForm() {
         resolver: zodResolver(schema)
     });
     const [ errorMessage, setErrorMessage ] = useState<string | null>(null);
-    //   const navigation = useNavigate();
+    const navigation = useNavigate();
     const { setIsAuthenticated,
         setToken,
         setUserId,
         setUsername
     } = useContext(AuthContext);
 
-    function onSubmit(data: FieldValues) {
-        logIn(
-            data.email,
-            data.password, 
-            setIsAuthenticated, 
-            setToken,
-            setUserId,
-            setUsername).then(response => {
-            if (response?.status == 200) {
-                console.log('yiiihaw');
-            } else {
-                setErrorMessage('Incorrect credentials, try again!');
-            }
-        }).catch(error => console.error(error.message));
+    async function onSubmit(data: FieldValues) {
+        try {
+            await logIn(
+                data.email,
+                data.password, 
+                setIsAuthenticated, 
+                setToken,
+                setUserId,
+                setUsername
+            ).then(response => {
+                if (response?.status == 200) {
+                    navigation('/mypages');
+                } else {
+                    setErrorMessage('incorrect credentials, try again!');
+                }
+            });
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (
@@ -56,7 +62,7 @@ export function LogInForm() {
             {errorMessage && <div className="text-danger my-1">{errorMessage}</div>}
             <FormField
                 fieldName="email"
-                label="Email"
+                label="email"
                 inputType="email"
                 fieldError={errors.email}
                 customError={errorMessage}
@@ -64,7 +70,7 @@ export function LogInForm() {
             />
             <FormField
                 fieldName="password"
-                label="Password"
+                label="password"
                 inputType="password"
                 fieldError={errors.password}
                 customError={errorMessage}
