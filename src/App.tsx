@@ -7,10 +7,10 @@ import { LoginView } from './views/LoginView';
 import { LandingPage } from './views/LandingPage';
 import { RegisterView } from './views/RegisterView';
 import { MyPages } from './views/MyPages';
-import { NewDream } from './components/forms/NewDreamForm';
 import { DreamArchive } from './views/Archive';
 import { NavBar } from './components/common/NavBar';
 import { Background } from './components/common/Background';
+import { NewDream } from './views/NewDream';
 
 function App() {
     const { isAuthenticated } = useContext(AuthContext);  

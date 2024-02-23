@@ -1,11 +1,11 @@
 import { StyledDiv } from '../components/common/styles/styles';
-import { RegisterForm } from '../components/forms/RegisterForm';
+import { NewDreamForm } from '../components/forms/NewDreamForm';
 
-export function RegisterView() {
+export function NewDream() {
 
     return (
         <StyledDiv>
-            <RegisterForm />
+            <NewDreamForm />
         </StyledDiv>
     );
 }

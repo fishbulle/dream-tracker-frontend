@@ -15,7 +15,7 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-export function NewDream() {
+export function NewDreamForm() {
     const {
         register,
         handleSubmit,

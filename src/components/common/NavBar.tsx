@@ -10,7 +10,7 @@ export function NavBar() {
     const { username, isAuthenticated } = useContext(AuthContext);
 
     return (
-        <Navbar bg="navColor" variant="dark" expand="lg" sticky='top'>
+        <Navbar bg="navColor" variant="dark" expand="lg" sticky="top">
             <Container>
                 <Navbar.Brand href="/"><GiDreamCatcher /> dream tracker</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -31,7 +31,7 @@ export function NavBar() {
                                 <Nav.Link href="/archive">archive</Nav.Link>
                                 <Nav.Link href="/settings">settings</Nav.Link>
                             </Nav>
-                            
+
                             <Navbar.Text>signed in as <span className='fw-bold'>{username}</span></Navbar.Text>
                         </>
                     )}
