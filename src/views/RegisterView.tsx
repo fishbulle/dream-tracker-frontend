@@ -1,11 +1,15 @@
+import { NavBar } from '../components/common/NavBar';
 import { StyledDiv } from '../components/common/styles/styles';
 import { RegisterForm } from '../components/forms/RegisterForm';
 
 export function RegisterView() {
 
     return (
-        <StyledDiv>
-            <RegisterForm />
-        </StyledDiv>
+        <>
+            <NavBar />
+            <StyledDiv>
+                <RegisterForm />
+            </StyledDiv>
+        </>
     );
 }

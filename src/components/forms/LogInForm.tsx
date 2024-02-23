@@ -5,8 +5,8 @@ import { z } from 'zod';
 import { AuthContext } from '../../context/AuthContext';
 import { logIn } from '../../api/api';
 import { FormField } from './FormField';
-import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { StyledButton } from '../common/styles/styles';
 
 const schema = z.object({
     email: z
@@ -47,7 +47,7 @@ export function LogInForm() {
                 setUsername
             ).then(response => {
                 if (response?.status == 200) {
-                    navigation('/mypages');
+                    navigation('/dashboard');
                 } else {
                     setErrorMessage('incorrect credentials, try again!');
                 }
@@ -76,7 +76,7 @@ export function LogInForm() {
                 customError={errorMessage}
                 register={register}
             />
-            <Button type="submit" className="btn w-100">Sign in</Button>
+            <StyledButton>enter the realm of dreams</StyledButton>
         </form>
     );
 }

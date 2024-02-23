@@ -13,28 +13,24 @@ export function NavBar() {
         <Navbar bg="navColor" variant="dark" expand="lg" sticky="top">
             <Container>
                 <Navbar.Brand href="/"><GiDreamCatcher /> dream tracker</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle aria-controls="basṣc-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    {!isAuthenticated && (
+                    {isAuthenticated ? 
                         <>
                             <Nav className="me-auto">
-                                <Nav.Link href="/register">register</Nav.Link>
-                                <Nav.Link href="/login">log in</Nav.Link>
-                            </Nav>
-                        </>
-                    )}
-                    {isAuthenticated && (
-                        <>
-                            <Nav className="me-auto">
-                                <Nav.Link href="/mypages">dashboard</Nav.Link>
+                                <Nav.Link href="/dashboard">dashboard</Nav.Link>
                                 <Nav.Link href="/newdream">new dream</Nav.Link>
                                 <Nav.Link href="/archive">archive</Nav.Link>
                                 <Nav.Link href="/settings">settings</Nav.Link>
                             </Nav>
-
                             <Navbar.Text>signed in as <span className='fw-bold'>{username}</span></Navbar.Text>
                         </>
-                    )}
+                        :
+                        <Nav className="me-auto">
+                            <Nav.Link href="/register">register</Nav.Link>
+                            <Nav.Link href="/login">log in</Nav.Link>
+                        </Nav>                       
+                    }
                 </Navbar.Collapse>
             </Container>
         </Navbar>

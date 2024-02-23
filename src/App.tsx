@@ -6,9 +6,8 @@ import { AuthContext } from './context/AuthContext';
 import { LoginView } from './views/LoginView';
 import { LandingPage } from './views/LandingPage';
 import { RegisterView } from './views/RegisterView';
-import { MyPages } from './views/MyPages';
+import { Dashboard } from './views/Dashboard';
 import { DreamArchive } from './views/Archive';
-import { NavBar } from './components/common/NavBar';
 import { Background } from './components/common/Background';
 import { NewDream } from './views/NewDream';
 
@@ -18,14 +17,13 @@ function App() {
     return (
         <BrowserRouter>
             <Background>
-                <NavBar />
                 <Routes>
                     <Route path='/' element={<LandingPage />} />
                     <Route path='/login' element={<LoginView />} />
                     <Route path="/register" element={<RegisterView/>}/>
                     { isAuthenticated && 
                 <>
-                    <Route path='/mypages' element={<MyPages />} />
+                    <Route path='/dashboard' element={<Dashboard />} />
                     <Route path='/newdream' element={<NewDream />} />
                     <Route path='/archive' element={<DreamArchive />} />
                     // settings (update password/email)

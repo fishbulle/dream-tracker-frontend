@@ -2,12 +2,11 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { ButtonDiv, StyledButton, StyledDiv } from '../components/common/styles/styles';
 import { useNavigate } from 'react-router-dom';
+import { NavBar } from '../components/common/NavBar';
 
-export function MyPages() {
-    const { token, userId, username } = useContext(AuthContext);
+export function Dashboard() {
+    const { username } = useContext(AuthContext);
     const navigate = useNavigate();
-
-    // useEffect som hämtar alla sparade drömmar 
 
     const newDream = () => {
         navigate('/newdream');
@@ -19,6 +18,7 @@ export function MyPages() {
 
     return (
         <>
+            <NavBar />
             <StyledDiv>
                 <h1>welcome {username}</h1>
                 <h3>what do you want to do today?</h3>
