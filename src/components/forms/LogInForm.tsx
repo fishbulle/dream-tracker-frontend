@@ -6,7 +6,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { logIn } from '../../api/api';
 import { FormField } from './FormField';
 import { useNavigate } from 'react-router-dom';
-import { StyledButton } from '../common/styles/styles';
+import { StyledButton } from '../../styles/styles';
 
 const schema = z.object({
     email: z

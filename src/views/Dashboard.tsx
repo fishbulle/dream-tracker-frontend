@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { ButtonDiv, StyledButton, StyledDiv } from '../components/common/styles/styles';
+import { ButtonDiv, StyledButton, StyledDiv } from '../styles/styles';
 import { useNavigate } from 'react-router-dom';
 
 export function Dashboard() {

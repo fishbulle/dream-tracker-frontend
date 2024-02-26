@@ -1,4 +1,4 @@
-import { StyledDiv } from '../components/common/styles/styles';
+import { StyledDiv } from '../styles/styles';
 import { RegisterForm } from '../components/forms/RegisterForm';
 
 export function RegisterView() {

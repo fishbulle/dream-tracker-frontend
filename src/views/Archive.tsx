@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { getAllDreamsByUser } from '../api/api';
-import { StyledDiv } from '../components/common/styles/styles';
+import { StyledDiv } from '../styles/styles';
 
 export function DreamArchive() {
     const { token, userId } = useContext(AuthContext);

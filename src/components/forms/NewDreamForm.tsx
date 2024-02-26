@@ -5,7 +5,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { newDream } from '../../api/api';
 import { FormField } from './FormField';
-import { StyledButton } from '../common/styles/styles';
+import { StyledButton } from '../../styles/styles';
 
 const schema = z.object({
     title: z.string().min(1, 'Title is required.'),
