@@ -24,6 +24,7 @@ export const StyledButton = styled.button`
         box-shadow: none !important;
     }
     &:hover {
-        
+        color: #000000;
     }
 `;
+
