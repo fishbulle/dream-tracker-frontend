@@ -2,11 +2,11 @@ import { Route, Routes } from 'react-router-dom';
 import { LandingPage } from '../views/LandingPage';
 import { LoginView } from '../views/LoginView';
 import { RegisterView } from '../views/RegisterView';
-import { Dashboard } from '@mui/icons-material';
 import { NewDream } from '../views/NewDream';
 import { DreamArchive } from '../views/Archive';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
+import { Dashboard } from '../views/Dashboard';
 import { ROUTES } from './routes';
 
 export const ApplicationRoutes = () => {
