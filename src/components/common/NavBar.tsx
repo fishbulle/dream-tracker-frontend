@@ -24,7 +24,16 @@ export function NavBar() {
                                 <Nav.Link as={Link} to='/archive'>archive</Nav.Link>
                                 <Nav.Link as={Link} to='/settings'>settings</Nav.Link>
                             </Nav>
-                            <Navbar.Text>signed in as <span className='fw-bold'>{username}</span></Navbar.Text>
+                            <Navbar.Text>
+                                signed in as 
+                                <span className='fw-bold'>
+                                    <Link 
+                                    to='/dashboard' 
+                                    style={{color: 'inherit', textDecoration: 'inherit'}}>
+                                        {username}
+                                    </Link>
+                                 </span>
+                             </Navbar.Text>
                         </>
                         :
                         <Nav className="me-auto">

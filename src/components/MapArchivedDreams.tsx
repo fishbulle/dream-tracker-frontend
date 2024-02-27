@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { getAllDreamsByUser } from '../api/api';
 import { FaPencilAlt } from "react-icons/fa";
+import { FaRegTrashCan } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
-import { StyledIconButton } from '../styles/styles';
+import { ButtonDiv, StyledDiv, StyledIconButton } from '../styles/styles';
 
 interface IDream {
     dreamId: string
@@ -42,7 +43,7 @@ export function MapDreams() {
             {/*  TODO move styles to styles file */}
 
             {dreams.map((dream, index) => (
-                <div key={index} style={{ backgroundColor: '#0a0a0a', color:'#c1bfbf', margin: '20px', padding:'20px', borderRadius: '25px' }}>
+                <StyledDiv key={index}>
                     <h1>
                         {dream.title}
                     </h1>
@@ -50,22 +51,29 @@ export function MapDreams() {
                         {dream.content}
                     </p>
                     <p>
-                        <span style={{ fontStyle: 'italic', color: '#FFBA86' }}>
-                            {dream.category}
+                        <span style={{ fontStyle: '', color: '#FFBA86' }}>
+                            {dream.category.toUpperCase()}
                         </span>
                         {dream.type == 'NIGHTMARE' ? 
-                        <span> • <span style={{ fontStyle: 'italic', fontWeight: 'bold', color: '#79155B' }}>nightmare</span></span> 
+                        <span> • <span style={{ fontStyle: 'italic', fontWeight: '', color: '#79155B' }}>{dream.type}</span></span> 
                         : 
                         null
                         }
                     </p>
-                    <StyledIconButton
-                    className=""
-                    aria-label="Press to edit dream data"
+                    <ButtonDiv>
+                        <StyledIconButton
+                    aria-label='Press to edit dream'
                     onClick={() => navigate("/updatedream", {state: {dream}})}>
-                    <FaPencilAlt />
-                    </StyledIconButton>
-                </div>
+                        <FaPencilAlt />
+                         </StyledIconButton>
+                         
+                          <StyledIconButton
+                    aria-label='Press to delete dream'
+                    onClick={() => console.log('Deleted.. but not really')}>
+                        <FaRegTrashCan />
+                        </StyledIconButton>
+                     </ButtonDiv>
+                </StyledDiv>
             ))}
         </>
     );

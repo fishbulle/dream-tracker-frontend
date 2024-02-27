@@ -10,10 +10,17 @@ export const StyledWrapper = styled.div`
     border-radius: 10px;
 `;
 
+export const StyledDiv = styled.div`
+    background-color: #0a0a0a; 
+    color: #c1bfbf;
+    margin: 20px; 
+    padding: 20px;
+    border-radius: 25px;
+`;
+
 export const ButtonDiv = styled.div`
     display: flex;
     justify-content: center;
-    padding-top: 20px;
 `;
 
 export const StyledButton = styled.button`
