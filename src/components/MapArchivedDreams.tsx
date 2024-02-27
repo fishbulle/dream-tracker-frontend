@@ -2,8 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { getAllDreamsByUser } from '../api/api';
 import { FaPencilAlt } from "react-icons/fa";
-import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { StyledIconButton } from '../styles/styles';
 
 interface IDream {
     dreamId: string
@@ -59,13 +59,12 @@ export function MapDreams() {
                         null
                         }
                     </p>
-                    <Button
-                    className="w-auto focus-ring focus-ring-dark"
+                    <StyledIconButton
+                    className=""
                     aria-label="Press to edit dream data"
-                    type="button"
                     onClick={() => navigate("/updatedream", {state: {dream}})}>
                     <FaPencilAlt />
-                    </Button>
+                    </StyledIconButton>
                 </div>
             ))}
         </>

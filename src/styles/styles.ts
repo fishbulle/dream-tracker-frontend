@@ -26,3 +26,14 @@ export const StyledButton = styled.button`
     }
 `;
 
+export const StyledIconButton = styled.button`
+    background-color: #0a0a0a;
+    color: #ffffff;
+    margin: 10px;
+    box-shadow: none;
+    border: none;
+    &:hover {
+        color: #F6635C;
+        box-shadow: none;
+    }
+`;
