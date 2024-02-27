@@ -76,7 +76,6 @@ export async function newDream(
             '/dreams/create', 
             rest,
             { 
-              
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'application/json'
@@ -96,7 +95,8 @@ export async function getAllDreamsByUser(
         const response = await api.get(
             '/dreams/read', {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
                 },
                 params: {
                     userId: userId
@@ -130,7 +130,8 @@ export async function updateDream(
             rest,
             {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
                 },
             }
         );
@@ -148,7 +149,8 @@ export async function deleteDream(
         return await api.delete(
             '/dreams/delete/' + dreamId, {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
                 },
                 params: {
                     userId: userId
