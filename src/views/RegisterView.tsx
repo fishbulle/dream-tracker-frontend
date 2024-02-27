@@ -6,6 +6,7 @@ export function RegisterView() {
     return (
         <>
             <StyledWrapper>
+                <h1>register a new user</h1>
                 <RegisterForm />
             </StyledWrapper>
         </>

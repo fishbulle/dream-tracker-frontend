@@ -30,7 +30,7 @@ export function NavBar() {
                                     <Link 
                                     to='/dashboard' 
                                     style={{color: 'inherit', textDecoration: 'inherit'}}>
-                                        {username}
+                                        {' ' + username}
                                     </Link>
                                  </span>
                              </Navbar.Text>

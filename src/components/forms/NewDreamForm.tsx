@@ -54,25 +54,30 @@ export function NewDreamForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className='text-start' onSubmit={handleSubmit(onSubmit)}>
                 <FormField
                     fieldName='title'
                     label='title'
                     inputType='text'
                     fieldError={errors.title}
                     register={register} />
-
-                <FormField
-                    fieldName='content'
-                    label='content'
-                    inputType='text'
-                    fieldError={errors.content}
-                    register={register} />
+                    
+                <label htmlFor="content" className="form-label fw-semibold">
+                    content
+                    <div className='form-text'>what happened in the dream?</div>
+                </label>
+                <textarea
+                    {...register('content')}
+                    className={errors.content ? "form-control is-invalid mb-3" : "form-control mb-3"}
+                    name='content'
+                    id='content'
+                    rows={4} />
 
                 <FormField
                     fieldName='category'
                     label='category'
                     inputType='text'
+                    labelDescription='sad, happy, cozy, funny, scary ..'
                     fieldError={errors.category}
                     register={register} />
 

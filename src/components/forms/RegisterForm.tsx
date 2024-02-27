@@ -6,6 +6,7 @@ import { FormField } from './FormField';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { StyledButton } from '../../styles/styles';
 
 const schema = z.object({
     nickname: z.string().min(2),
@@ -53,7 +54,7 @@ export function RegisterForm() {
 
     return (
         <>
-            <form className='my-3 my-md-5 px-4 text-start' onSubmit={handleSubmit(onSubmit)}>
+            <form className='my-5 my-md-5 px-4 text-start' onSubmit={handleSubmit(onSubmit)}>
                 <FormField
                     fieldName='nickname' 
                     label='nickname'
@@ -83,9 +84,11 @@ export function RegisterForm() {
                     fieldError={errors.confirmPassword} 
                     register={register} />
                 {errorMessage && <div className="text-danger my-1">{errorMessage}</div>}
-                <Button type="submit" className="btn w-100" aria-label='Register button'>
+                <StyledButton 
+                type="submit"
+                aria-label='Register button'>
           Register
-                </Button>
+                </StyledButton>
             </form>
         </>
     );

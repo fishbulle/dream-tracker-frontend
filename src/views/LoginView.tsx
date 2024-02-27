@@ -6,6 +6,7 @@ export function LoginView() {
     return (
         <>
             <StyledWrapper>
+                <h1>log in</h1>
                 <LogInForm />
             </StyledWrapper>
         </>

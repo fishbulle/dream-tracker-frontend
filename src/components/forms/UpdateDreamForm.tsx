@@ -59,7 +59,7 @@ export function UpdateDreamForm() {
 
     return (
         <StyledWrapper>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form className='text-start' onSubmit={handleSubmit(onSubmit)}>
                 <FormField
                     fieldName='title'
                     label='title'
@@ -68,13 +68,25 @@ export function UpdateDreamForm() {
                     fieldError={errors.title}
                     register={register} />
 
-                <FormField
+                {/* <FormField
                     fieldName='content'
                     label='content'
                     inputType='text'
                     defaultValue={dream.content}
                     fieldError={errors.content}
-                    register={register} />
+                    register={register} /> */}
+
+                <label htmlFor="content" className="form-label fw-semibold">
+                    content
+                    <div className='form-text'>what happened in the dream?</div>
+                 </label>
+                <textarea
+                    {...register('content')}
+                    className={errors.content ? "form-control is-invalid mb-3" : "form-control mb-3"}
+                    name='content'
+                    defaultValue={dream.content}
+                    id='content'
+                    rows={4} />
 
                 <FormField
                     fieldName='category'
@@ -90,10 +102,10 @@ export function UpdateDreamForm() {
                     labelDescription='was it a nightmare?'
                     inputType='radio'
                     options={dreamOptions}
-                    defaultValue={dream.type}
+                    checked={dream.type}
                     fieldError={errors.type}
                     register={register}
-                />
+                /> 
 
                 <StyledButton aria-label='Submit button'>
           update dream
