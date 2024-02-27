@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { getAllDreamsByUser } from '../api/api';
-import { StyledDiv } from '../styles/styles';
 
 interface IDream {
     dreamId: string
@@ -36,18 +35,21 @@ export function MapDreams() {
 
     return (
         <>
+
+            {/*  TODO move styles to styles file */}
+
             {dreams.map((dream, index) => (
-                <>
-                    <h1 key={index}>
+                <div key={index} style={{ backgroundColor: '#0a0a0a', color:'#c1bfbf', margin: '20px', padding:'20px', borderRadius: '25px' }}>
+                    <h1>
                         {dream.title}
                     </h1>
                     <p>
                         {dream.content}
                     </p>
-                    <p>
+                    <p style={{ fontStyle: 'italic', color: '#FFBA86' }}>
                         {dream.category}
                     </p>
-                </>
+                </div>
             ))}
         </>
     );

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { ButtonDiv, StyledButton, StyledDiv } from '../styles/styles';
+import { ButtonDiv, StyledButton, StyledWrapper } from '../styles/styles';
 import { useNavigate } from 'react-router-dom';
 
 export function Dashboard() {
@@ -17,14 +17,14 @@ export function Dashboard() {
 
     return (
         <>
-            <StyledDiv>
+            <StyledWrapper>
                 <h1>welcome {username}</h1>
                 <h3>what do you want to do today?</h3>
                 <ButtonDiv>
                     <StyledButton onClick={newDream}>register new dream</StyledButton>
                     <StyledButton onClick={oldDreams}>browse old dreams</StyledButton>
                 </ButtonDiv>
-            </StyledDiv>
+            </StyledWrapper>
         </>
     );
 }

@@ -1,13 +1,13 @@
-import { StyledDiv } from '../styles/styles';
+import { StyledWrapper } from '../styles/styles';
 import { RegisterForm } from '../components/forms/RegisterForm';
 
 export function RegisterView() {
 
     return (
         <>
-            <StyledDiv>
+            <StyledWrapper>
                 <RegisterForm />
-            </StyledDiv>
+            </StyledWrapper>
         </>
     );
 }

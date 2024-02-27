@@ -1,13 +1,14 @@
 import { MapDreams } from '../components/MapArchivedDreams';
-import { StyledDiv } from '../styles/styles';
+import { StyledWrapper } from '../styles/styles';
 
 export function DreamArchive() {
 
     return (
         <>
-            <StyledDiv>
+            <StyledWrapper>
+                <h1>dream archive</h1>
                 <MapDreams />
-            </StyledDiv>
+            </StyledWrapper>
         </>
     );
 }
