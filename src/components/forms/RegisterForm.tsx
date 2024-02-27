@@ -3,7 +3,6 @@ import { useForm, FieldValues } from 'react-hook-form';
 import { z } from 'zod';
 import { registerUser } from '../../api/api';
 import { FormField } from './FormField';
-import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { StyledButton } from '../../styles/styles';
