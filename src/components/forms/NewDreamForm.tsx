@@ -21,8 +21,8 @@ type option = {
 };
 
 const dreamOptions: option[] = [
-    { value: 'NIGHTMARE', label: 'nightmare' },
-    { value: 'NOT_NIGHTMARE', label: 'not nightmare' }
+    { value: 'NIGHTMARE', label: 'yes' },
+    { value: 'NOT_NIGHTMARE', label: 'no' }
 ];
 
 export function NewDreamForm() {
@@ -57,28 +57,28 @@ export function NewDreamForm() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <FormField
                     fieldName='title'
-                    label='Title'
+                    label='title'
                     inputType='text'
                     fieldError={errors.title}
                     register={register} />
 
                 <FormField
                     fieldName='content'
-                    label='Content'
+                    label='content'
                     inputType='text'
                     fieldError={errors.content}
                     register={register} />
 
                 <FormField
                     fieldName='category'
-                    label='Category'
+                    label='category'
                     inputType='text'
                     fieldError={errors.category}
                     register={register} />
 
                 <FormField
                     fieldName='type'
-                    label='Type'
+                    label='type'
                     labelDescription='was it a nightmare?'
                     inputType='radio'
                     options={dreamOptions}
