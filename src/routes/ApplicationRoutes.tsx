@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Dashboard } from '../views/Dashboard';
 import { ROUTES } from './routes';
+import { UpdateDreamForm } from '../components/forms/UpdateDreamForm';
 
 export const ApplicationRoutes = () => {
     const { isAuthenticated } = useContext(AuthContext);
@@ -23,6 +24,7 @@ export const ApplicationRoutes = () => {
                     <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
                     <Route path={ROUTES.NEW_DREAM} element={<NewDream />} />
                     <Route path={ROUTES.ARCHIVE} element={<DreamArchive />} />
+                    <Route path={ROUTES.UPDATE_DREAM} element={<UpdateDreamForm />} />
                     // settings (update password/email)
                 </>
                 }

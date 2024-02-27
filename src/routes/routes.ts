@@ -4,5 +4,6 @@ export enum ROUTES {
     REGISTER = '/register',
     DASHBOARD = '/dashboard',
     NEW_DREAM = '/newdream',
-    ARCHIVE = '/archive'
+    ARCHIVE = '/archive',
+    UPDATE_DREAM = '/updatedream'
 }
