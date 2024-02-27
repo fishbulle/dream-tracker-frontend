@@ -10,10 +10,20 @@ import { StyledButton } from '../../styles/styles';
 const schema = z.object({
     title: z.string().min(1, 'Title is required.'),
     content: z.string().min(1, 'Content is required.'),
-    category: z.string().min(1, 'Category is required.')
+    category: z.string().min(1, 'Category is required.'),
+    type: z.enum([ 'NIGHTMARE', 'NOT_NIGHTMARE' ])
 });
 
 type FormData = z.infer<typeof schema>;
+type option = {
+    value: string,
+    label: string
+};
+
+const dreamOptions: option[] = [
+    { value: 'NIGHTMARE', label: 'nightmare' },
+    { value: 'NOT_NIGHTMARE', label: 'not nightmare' }
+];
 
 export function NewDreamForm() {
     const {
@@ -32,6 +42,7 @@ export function NewDreamForm() {
                     title:  data.title,
                     content: data.content,
                     category: data.category,
+                    type: data.type,
                     userId,
                     token, 
                 }
@@ -65,12 +76,15 @@ export function NewDreamForm() {
                     fieldError={errors.category}
                     register={register} />
 
-                {/* <ReactTags
-                    tags={tagValues}
-                    delimiters={[ Keys.COMMA, Keys.SPACE ]}
-                    handleAddition={handleTagChange}
-                    placeholder="Enter tags separated by comma or space"
-                /> */}
+                <FormField
+                    fieldName='type'
+                    label='Type'
+                    labelDescription='was it a nightmare?'
+                    inputType='radio'
+                    options={dreamOptions}
+                    fieldError={errors.type}
+                    register={register}
+                />
 
                 <StyledButton aria-label='Submit button'>
           register dream

@@ -6,7 +6,8 @@ interface IDream {
     dreamId: string
     title: string
     content: string
-    category: string
+    category: string,
+    isNightmare: boolean
 }
 
 export function MapDreams() {
@@ -36,7 +37,8 @@ export function MapDreams() {
     return (
         <>
 
-            {/*  TODO move styles to styles file */}
+            {/*  TODO move styles to styles file
+                      if (nightmare) different color ? */}
 
             {dreams.map((dream, index) => (
                 <div key={index} style={{ backgroundColor: '#0a0a0a', color:'#c1bfbf', margin: '20px', padding:'20px', borderRadius: '25px' }}>
@@ -49,6 +51,7 @@ export function MapDreams() {
                     <p style={{ fontStyle: 'italic', color: '#FFBA86' }}>
                         {dream.category}
                     </p>
+                    {dream.isNightmare}
                 </div>
             ))}
         </>

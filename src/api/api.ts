@@ -65,6 +65,7 @@ export async function newDream(
     title: string,
     content: string,
     category: string,
+    type: string,
     userId: string,
     token: string
    }
@@ -120,6 +121,7 @@ export async function updateDream(
     title?: string,
     content?: string,
     category?: string
+    type?: string
     }
 ) {
     const { token, ...rest } = params;  

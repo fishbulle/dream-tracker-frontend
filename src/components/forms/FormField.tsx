@@ -15,12 +15,12 @@ interface IFormField<T extends FieldValues> {
     inputType: HTMLInputTypeAttribute;
     options?: option[] | null;
     labelDescription?: string;
-    placeholder?: string
-    value?: string
-    defaultValue?: string
-    checked?: boolean
-    min?: string
-    radioLabel?: string
+    placeholder?: string;
+    value?: string;
+    defaultValue?: string;
+    checked?: boolean;
+    min?: string;
+    radioLabel?: string;
 }
 
 export function FormField<T extends FieldValues>({
@@ -69,6 +69,7 @@ export function FormField<T extends FieldValues>({
     );
 
     function getRadioButtonField() {
+
         return <div>
             {
                 options?.map((option) => (
