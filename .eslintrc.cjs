@@ -18,7 +18,7 @@ module.exports = {
     ],
     // 'no-unused-vars': 'warn',
     "@typescript-eslint/no-unused-vars": ["warn"],
-    'quotes': ['error', 'single'],
+    'quotes': ['warn', 'single', 'backtick'],
     'semi': ['error', 'always'],
     'indent': ['error', 4],
     'no-multi-spaces': ['error'],

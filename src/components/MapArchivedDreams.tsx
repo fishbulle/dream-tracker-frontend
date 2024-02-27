@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { getAllDreamsByUser } from '../api/api';
+import { convertType } from '../utils/convert-type';
 
 interface IDream {
     dreamId: string
     title: string
     content: string
     category: string,
-    isNightmare: boolean
+    type: string
 }
 
 export function MapDreams() {
@@ -48,10 +49,16 @@ export function MapDreams() {
                     <p>
                         {dream.content}
                     </p>
-                    <p style={{ fontStyle: 'italic', color: '#FFBA86' }}>
-                        {dream.category}
+                    <p>
+                        <span style={{ fontStyle: 'italic', color: '#FFBA86' }}>
+                            {dream.category}
+                        </span>
+                        {dream.type == 'NIGHTMARE' ? 
+                        <span> • <span style={{ fontStyle: 'italic', fontWeight: 'bold', color: '#79155B' }}>nightmare</span></span> 
+                        : 
+                        null
+                        }
                     </p>
-                    {dream.isNightmare}
                 </div>
             ))}
         </>
