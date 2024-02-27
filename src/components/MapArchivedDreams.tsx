@@ -1,7 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { getAllDreamsByUser } from '../api/api';
-import { convertType } from '../utils/convert-type';
+import { FaPencilAlt } from "react-icons/fa";
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 interface IDream {
     dreamId: string
@@ -14,7 +16,7 @@ interface IDream {
 export function MapDreams() {
     const { token, userId } = useContext(AuthContext);
     const [ dreams, setDreams ] = useState<IDream[]>([]);
-
+    const navigate = useNavigate();
     
     useEffect(() => {
         const getPreviousDreams = async () => {
@@ -37,9 +39,7 @@ export function MapDreams() {
 
     return (
         <>
-
-            {/*  TODO move styles to styles file
-                      if (nightmare) different color ? */}
+            {/*  TODO move styles to styles file */}
 
             {dreams.map((dream, index) => (
                 <div key={index} style={{ backgroundColor: '#0a0a0a', color:'#c1bfbf', margin: '20px', padding:'20px', borderRadius: '25px' }}>
@@ -59,6 +59,13 @@ export function MapDreams() {
                         null
                         }
                     </p>
+                    <Button
+                    className="w-auto focus-ring focus-ring-dark"
+                    aria-label="Press to edit dream data"
+                    type="button"
+                    onClick={() => navigate("/updatedream", {state: {dream}})}>
+                    <FaPencilAlt />
+                    </Button>
                 </div>
             ))}
         </>
