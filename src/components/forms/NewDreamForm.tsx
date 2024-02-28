@@ -99,7 +99,7 @@ export function NewDreamForm() {
                 <StyledButton aria-label='Submit button'>
                     register dream
                 </StyledButton>
-            </form >
+            </form>
         </>
     );
 }

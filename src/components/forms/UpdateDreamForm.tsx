@@ -115,7 +115,7 @@ export function UpdateDreamForm() {
                 <StyledButton aria-label='Submit button'>
                     update dream
                 </StyledButton>
-            </form >
-        </StyledWrapper >
+            </form>
+        </StyledWrapper>
     );
 }

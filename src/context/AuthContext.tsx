@@ -19,13 +19,13 @@ interface IAuthContext {
 
 const defaultAuthContext: IAuthContext = {
     isAuthenticated: false,
-    setIsAuthenticated: () => { },
+    setIsAuthenticated: () => {},
     userId: '',
-    setUserId: () => { },
+    setUserId: () => {},
     username: '',
-    setUsername: () => { },
+    setUsername: () => {},
     token: '',
-    setToken: () => { },
+    setToken: () => {},
 };
 
 export const AuthContext = createContext<IAuthContext>(defaultAuthContext);
