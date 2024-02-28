@@ -4,7 +4,6 @@ import App from './App.tsx';
 import { AuthProvider } from './context/AuthContext.tsx';
 import { BrowserRouter } from 'react-router-dom';
 
-
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <AuthProvider>
@@ -12,5 +11,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
                 <App />
             </BrowserRouter>
         </AuthProvider>
-    </React.StrictMode>,
+    </React.StrictMode>
 );

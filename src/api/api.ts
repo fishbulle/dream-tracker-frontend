@@ -3,10 +3,10 @@ import api from './api-root';
 import { AxiosResponse } from 'axios';
 
 type UserResponse = {
-    token: string,
-    userId: string,
-    nickname: string
-}
+    token: string;
+    userId: string;
+    nickname: string;
+};
 
 export async function registerUser(
     nickname: string,
@@ -14,17 +14,13 @@ export async function registerUser(
     password: string
 ): Promise<AxiosResponse<UserResponse> | undefined> {
     try {
-        const response = await api.post(
-            '/auth/register',
-            {
-                nickname: nickname,
-                email: email,
-                password: password
-            }
-        );
+        const response = await api.post('/auth/register', {
+            nickname: nickname,
+            email: email,
+            password: password,
+        });
 
         return response;
-        
     } catch (error) {
         console.error('something went wrong', error);
     }
@@ -39,71 +35,57 @@ export async function logIn(
     setUsername: Dispatch<SetStateAction<string>>
 ): Promise<AxiosResponse<UserResponse> | undefined> {
     try {
-        const response = await api.post(
-            '/auth/authenticate',
-            {
-                email: email,
-                password: password
-            }
-        );
+        const response = await api.post('/auth/authenticate', {
+            email: email,
+            password: password,
+        });
 
         if (response.status == 200) {
             setIsAuthenticated(true),
-            setToken(response.data.token),
-            setUserId(response.data.userId),
-            setUsername(response.data.nickname);
-            
+                setToken(response.data.token),
+                setUserId(response.data.userId),
+                setUsername(response.data.nickname);
+
             return response;
-        } 
+        }
     } catch (error) {
         console.error('something went wrong', error);
     }
 }
 
-export async function newDream(
-    params: {
-    title: string,
-    content: string,
-    category: string,
-    type: string,
-    userId: string,
-    token: string
-   }
-) {
-    const { token, ...rest } = params;  
-    
+export async function newDream(params: {
+    title: string;
+    content: string;
+    category: string;
+    type: string;
+    userId: string;
+    token: string;
+}) {
+    const { token, ...rest } = params;
+
     try {
-        return await api.post(
-            '/dreams/create', 
-            rest,
-            { 
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                } 
+        return await api.post('/dreams/create', rest, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
             },
-        );
+        });
     } catch (error) {
         console.error('something went wrong', error);
     }
 }
 
-export async function getAllDreamsByUser(
-    userId: string,
-    token: string
-) {
+export async function getAllDreamsByUser(userId: string, token: string) {
     try {
-        const response = await api.get(
-            '/dreams/read', {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
-                params: {
-                    userId: userId
-                }
-            }
-        );
+        const response = await api.get('/dreams/read', {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            params: {
+                userId: userId,
+            },
+        });
 
         if (response.status == 200) {
             return response;
@@ -113,30 +95,24 @@ export async function getAllDreamsByUser(
     }
 }
 
-export async function updateDream(
-    params: {
-    dreamId: string,
-    userId: string,
-    token: string,
-    title?: string,
-    content?: string,
-    category?: string
-    type?: string
-    }
-) {
-    const { token, ...rest } = params;  
+export async function updateDream(params: {
+    dreamId: string;
+    userId: string;
+    token: string;
+    title?: string;
+    content?: string;
+    category?: string;
+    type?: string;
+}) {
+    const { token, ...rest } = params;
 
     try {
-        return await api.put(
-            '/dreams/update',
-            rest,
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
-            }
-        );
+        return await api.put('/dreams/update', rest, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        });
     } catch (error) {
         console.error('something went wrong', error);
     }
@@ -148,17 +124,15 @@ export async function deleteDream(
     token: string
 ) {
     try {
-        return await api.delete(
-            '/dreams/delete/' + dreamId, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                },
-                params: {
-                    userId: userId
-                }
-            }
-        );
+        return await api.delete('/dreams/delete/' + dreamId, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            params: {
+                userId: userId,
+            },
+        });
     } catch (error) {
         console.error('something went wrong', error);
     }
