@@ -24,8 +24,8 @@
     },
     "include": [
         "src",
-        "eslintrc.js",
-        "prettierrc.js",
+        "eslintrc.cjs",
+        "prettierrc.cjs",
         "src/**/*.ts",
         "src/**/*.tsx"
     ],
