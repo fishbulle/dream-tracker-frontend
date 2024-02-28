@@ -17,7 +17,7 @@ const schema = z.object({
     confirmPassword: z.string()
 }).refine(value => value.password == value.confirmPassword, {
     message: 'password doesn\'t match. try again.',
-    path: [ 'confirmPassword' ]
+    path: ['confirmPassword']
 });
 
 type FormData = z.infer<typeof schema>;
@@ -30,7 +30,7 @@ export function RegisterForm() {
     } = useForm<FormData>({
         resolver: zodResolver(schema)
     });
-    const [ errorMessage, setErrorMessage ] = useState<string | null>(null);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const navigation = useNavigate();
 
     async function onSubmit(data: FieldValues) {
@@ -43,7 +43,7 @@ export function RegisterForm() {
 
             if (response?.status == 200)
                 navigation('/login');
-            else 
+            else
                 setErrorMessage('there already exists an account connected to this email.');
 
         } catch (error) {
@@ -55,38 +55,38 @@ export function RegisterForm() {
         <>
             <form className='my-5 my-md-5 px-4 text-start' onSubmit={handleSubmit(onSubmit)}>
                 <FormField
-                    fieldName='nickname' 
+                    fieldName='nickname'
                     label='nickname'
-                    labelDescription='this is what we will call you' 
-                    inputType='text' 
-                    fieldError={errors.nickname} 
+                    labelDescription='this is what we will call you'
+                    inputType='text'
+                    fieldError={errors.nickname}
                     register={register} />
                 <FormField
-                    fieldName='email' 
+                    fieldName='email'
                     label='email'
                     labelDescription='this is what you will log in with'
-                    inputType='email' 
-                    fieldError={errors.email} 
+                    inputType='email'
+                    fieldError={errors.email}
                     register={register} />
                 <FormField
-                    fieldName='password' 
+                    fieldName='password'
                     label='password'
                     labelDescription='at least 8 characters with 1 number, 1 uppercase & 1 lowercase letter'
-                    inputType='password' 
-                    fieldError={errors.password} 
+                    inputType='password'
+                    fieldError={errors.password}
                     register={register} />
                 <FormField
-                    fieldName='confirmPassword' 
+                    fieldName='confirmPassword'
                     label='confirm password'
                     labelDescription='enter the password again please'
-                    inputType='password' 
-                    fieldError={errors.confirmPassword} 
+                    inputType='password'
+                    fieldError={errors.confirmPassword}
                     register={register} />
                 {errorMessage && <div className="text-danger my-1">{errorMessage}</div>}
-                <StyledButton 
-                type="submit"
-                aria-label='Register button'>
-          Register
+                <StyledButton
+                    type="submit"
+                    aria-label='Register button'>
+                    Register
                 </StyledButton>
             </form>
         </>

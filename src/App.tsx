@@ -5,14 +5,14 @@ import { NavBar } from "./components/common/NavBar";
 import { ApplicationRoutes } from "./routes/ApplicationRoutes";
 
 function App() {
-  return (
-    <>
-      <Background>
-        <NavBar />
-        <ApplicationRoutes />
-      </Background>
-    </>
-  );
+    return (
+        <>
+            <Background>
+                <NavBar />
+                <ApplicationRoutes />
+            </Background>
+        </>
+    );
 }
 
 export default App;

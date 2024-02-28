@@ -11,24 +11,24 @@ import { ROUTES } from "./routes";
 import { UpdateDreamForm } from "../components/forms/UpdateDreamForm";
 
 export const ApplicationRoutes = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+    const { isAuthenticated } = useContext(AuthContext);
 
-  return (
-    <>
-      <Routes>
-        <Route path={ROUTES.START} element={<LandingPage />} />
-        <Route path={ROUTES.LOGIN} element={<LoginView />} />
-        <Route path={ROUTES.REGISTER} element={<RegisterView />} />
-        {isAuthenticated && (
-          <>
-            <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
-            <Route path={ROUTES.NEW_DREAM} element={<NewDream />} />
-            <Route path={ROUTES.ARCHIVE} element={<DreamArchive />} />
-            <Route path={ROUTES.UPDATE_DREAM} element={<UpdateDreamForm />} />
+    return (
+        <>
+            <Routes>
+                <Route path={ROUTES.START} element={<LandingPage />} />
+                <Route path={ROUTES.LOGIN} element={<LoginView />} />
+                <Route path={ROUTES.REGISTER} element={<RegisterView />} />
+                {isAuthenticated && (
+                    <>
+                        <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
+                        <Route path={ROUTES.NEW_DREAM} element={<NewDream />} />
+                        <Route path={ROUTES.ARCHIVE} element={<DreamArchive />} />
+                        <Route path={ROUTES.UPDATE_DREAM} element={<UpdateDreamForm />} />
             // settings (update password/email)
-          </>
-        )}
-      </Routes>
-    </>
-  );
+                    </>
+                )}
+            </Routes>
+        </>
+    );
 };
