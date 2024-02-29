@@ -1,14 +1,10 @@
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import {
-  ButtonDiv,
-  StyledButton,
-  StyledDiv,
-  StyledWrapper,
-} from '../styles/styles';
+import { ButtonDiv, StyledButton, StyledWrapper } from '../styles/styles';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes/routes';
 import { messages } from '../utils/messages';
+import { RandomCatFact } from '../components/RandomCatFact';
 
 export function Dashboard() {
   const { username } = useContext(AuthContext);
@@ -31,9 +27,16 @@ export function Dashboard() {
           <StyledButton onClick={newDream}>register new dream</StyledButton>
           <StyledButton onClick={oldDreams}>browse old dreams</StyledButton>
         </ButtonDiv>
-        <StyledDiv>
-          <p>settings</p>
-        </StyledDiv>
+      </StyledWrapper>
+      <StyledWrapper>
+        <h2>random cat fact of the day</h2>
+        <RandomCatFact />
+      </StyledWrapper>
+      <StyledWrapper>
+        <h2>statistics and numbers</h2>
+        <p>
+          you have recorded xx dreams where xx are nightmares and xx occurances
+        </p>
       </StyledWrapper>
     </>
   );

@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 import api from './api-root';
-import { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 type UserResponse = {
   token: string;
@@ -71,7 +71,7 @@ export async function newDream(params: {
       },
     });
   } catch (error) {
-    console.error('something went wrong', error);
+    console.error('could not post dream', error);
   }
 }
 
@@ -91,7 +91,7 @@ export async function getAllDreamsByUser(userId: string, token: string) {
       return response;
     }
   } catch (error) {
-    console.error('something went wrong', error);
+    console.error('could not fetch dreams', error);
   }
 }
 
@@ -114,7 +114,7 @@ export async function updateDream(params: {
       },
     });
   } catch (error) {
-    console.error('something went wrong', error);
+    console.error('could not update dream', error);
   }
 }
 
@@ -134,6 +134,14 @@ export async function deleteDream(
       },
     });
   } catch (error) {
-    console.error('something went wrong', error);
+    console.error('could not delete dream', error);
+  }
+}
+
+export async function getCatFact() {
+  try {
+    return await axios.get('https://catfact.ninja/fact');
+  } catch (error) {
+    console.error(`couldn't get cat fact :( ${error})`);
   }
 }
