@@ -12,7 +12,7 @@ export function Background({ children }: IProps) {
         backgroundImage: `url(${purplesky})`,
         backgroundSize: 'cover',
       }}
-      className='min-vw-100 min-vh-100 p-0'
+      className='min-vw-100 min-vh-100 m-0 p-4'
     >
       {children}
     </Container>
