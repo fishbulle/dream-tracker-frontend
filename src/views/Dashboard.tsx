@@ -29,14 +29,14 @@ export function Dashboard() {
         </ButtonDiv>
       </StyledWrapper>
       <StyledWrapper>
-        <h2>random cat fact of the day</h2>
-        <RandomCatFact />
-      </StyledWrapper>
-      <StyledWrapper>
         <h2>statistics and numbers</h2>
         <p>
           you have recorded xx dreams where xx are nightmares and xx occurances
         </p>
+      </StyledWrapper>
+      <StyledWrapper>
+        <h2>random cat fact of the day</h2>
+        <RandomCatFact />
       </StyledWrapper>
     </>
   );
