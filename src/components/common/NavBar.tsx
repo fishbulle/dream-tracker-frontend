@@ -11,7 +11,13 @@ export function NavBar() {
   const { username, isAuthenticated } = useContext(AuthContext);
 
   return (
-    <Navbar bg='navColor' variant='dark' expand='lg' sticky='top'>
+    <Navbar
+      bg='navColor'
+      variant='dark'
+      expand='lg'
+      sticky='top'
+      className='mb-6'
+    >
       <Container>
         <Navbar.Brand as={Link} to='/'>
           <GiDreamCatcher /> dream tracker

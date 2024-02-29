@@ -8,6 +8,7 @@ import {
 } from '../styles/styles';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../routes/routes';
+import { messages } from '../utils/messages';
 
 export function Dashboard() {
   const { username } = useContext(AuthContext);
@@ -24,8 +25,8 @@ export function Dashboard() {
   return (
     <>
       <StyledWrapper>
-        <h1>welcome {username}</h1>
-        <h3>what do you want to do today?</h3>
+        <h1>{messages.dashboard.heading + username}</h1>
+        <h3>{messages.dashboard.subHeading}</h3>
         <ButtonDiv>
           <StyledButton onClick={newDream}>register new dream</StyledButton>
           <StyledButton onClick={oldDreams}>browse old dreams</StyledButton>

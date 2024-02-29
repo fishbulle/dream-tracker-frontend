@@ -4,8 +4,10 @@ import { StyledWrapper } from '../styles/styles';
 export function DreamArchive() {
   return (
     <>
+      {/* TODO: add option to sort on nightmare/not nightmare
+          add pagination */}
+      <h1>archive</h1>
       <StyledWrapper>
-        <h1>dream archive</h1>
         <MapDreams />
       </StyledWrapper>
     </>
