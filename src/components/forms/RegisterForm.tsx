@@ -6,27 +6,22 @@ import { FormField } from './FormField';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { StyledButton } from '../../styles/styles';
+import { messages } from '../../utils/messages';
+import { ROUTES } from '../../routes/routes';
 
 const schema = z
   .object({
     nickname: z.string().min(2),
-    email: z.string().min(5).email('please provide a valid email address'),
+    email: z.string().min(5).email(messages.form.email),
     password: z
       .string()
-      .min(8, { message: 'password must be at least 8 characters.' })
-      .regex(/\d/, {
-        message: 'password must contain at least one digit [0-9].',
-      })
-      .regex(/[A-Z]/, {
-        message: 'password must contain at least one uppercase letter [A-Z]',
-      })
-      .regex(/[a-z]/, {
-        message: 'password must contain at least one lowercase letter [a-z]',
-      }),
+      .min(8, { message: messages.form.passwordRules.min })
+      .regex(/\d/, { message: messages.form.passwordRules.digit })
+      .regex(/[A-Z]/, { message: messages.form.passwordRules.uppercase }),
     confirmPassword: z.string(),
   })
   .refine((value) => value.password == value.confirmPassword, {
-    message: "password doesn't match. try again.",
+    message: messages.form.passwordMismatch,
     path: ['confirmPassword'],
   });
 
@@ -51,11 +46,8 @@ export function RegisterForm() {
         data.password
       );
 
-      if (response?.status == 200) navigation('/login');
-      else
-        setErrorMessage(
-          'there already exists an account connected to this email.'
-        );
+      if (response?.status == 200) navigation(ROUTES.LOGIN);
+      else setErrorMessage(messages.errors.accountAlreadyExists);
     } catch (error) {
       console.error(error);
     }

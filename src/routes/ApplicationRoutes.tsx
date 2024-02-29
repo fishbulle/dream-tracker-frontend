@@ -25,7 +25,6 @@ export const ApplicationRoutes = () => {
             <Route path={ROUTES.NEW_DREAM} element={<NewDream />} />
             <Route path={ROUTES.ARCHIVE} element={<DreamArchive />} />
             <Route path={ROUTES.UPDATE_DREAM} element={<UpdateDreamForm />} />
-            // settings (update password/email)
           </>
         )}
       </Routes>
