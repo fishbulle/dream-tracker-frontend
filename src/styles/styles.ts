@@ -29,6 +29,7 @@ export const StyledInnerDiv = styled.div`
 export const ButtonDiv = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: 1.5em;
 `;
 
 export const StyledButton = styled.button`
