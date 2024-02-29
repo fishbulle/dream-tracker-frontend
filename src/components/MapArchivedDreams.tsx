@@ -45,9 +45,9 @@ export function MapDreams() {
     <>
       {dreams.map((dream, index) => (
         <StyledDiv key={index}>
-          <h1>{dream.title}</h1>
+          <h1>{dream.title.toLowerCase()}</h1>
           <StyledInnerDiv>
-            <p>{dream.content}</p>
+            <p>{dream.content.toLowerCase()}</p>
           </StyledInnerDiv>
           <p>
             <span style={categoryStyle}>{dream.category.toUpperCase()}</span>
