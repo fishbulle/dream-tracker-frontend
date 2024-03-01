@@ -78,7 +78,7 @@ export function RegisterForm() {
         <FormField
           fieldName='password'
           label='password'
-          labelDescription='at least 8 characters with 1 number, 1 uppercase & 1 lowercase letter'
+          labelDescription='at least 8 characters with 1 number & 1 uppercase letter'
           inputType='password'
           fieldError={errors.password}
           register={register}
@@ -93,7 +93,7 @@ export function RegisterForm() {
         />
         {errorMessage && <div className='text-danger my-1'>{errorMessage}</div>}
         <StyledButton type='submit' aria-label='Register button'>
-          Register
+          register
         </StyledButton>
       </form>
     </>
