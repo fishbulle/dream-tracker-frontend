@@ -9,6 +9,7 @@ import { StyledButton } from '../../styles/styles';
 import { messages } from '../../utils/messages';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
+import { dreamOptions } from '../../utils/dream-type-option';
 
 const schema = z.object({
   title: z.string().min(1, messages.form.dream.title),
@@ -18,15 +19,6 @@ const schema = z.object({
 });
 
 type FormData = z.infer<typeof schema>;
-type option = {
-  value: string;
-  label: string;
-};
-
-const dreamOptions: option[] = [
-  { value: 'NIGHTMARE', label: 'yes' },
-  { value: 'NOT_NIGHTMARE', label: 'no' },
-];
 
 export function NewDreamForm() {
   const {
