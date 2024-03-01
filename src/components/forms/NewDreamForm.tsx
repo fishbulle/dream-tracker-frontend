@@ -85,7 +85,6 @@ export function NewDreamForm() {
           fieldName='category'
           label='category'
           inputType='text'
-          labelDescription='sad, happy, cozy, funny, scary ..'
           fieldError={errors.category}
           register={register}
         />

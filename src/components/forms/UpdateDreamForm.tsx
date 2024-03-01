@@ -100,7 +100,7 @@ export function UpdateDreamForm() {
           labelDescription={messages.form.dream.nightmare}
           inputType='radio'
           options={dreamOptions}
-          checked={dream.type}
+          // defaultChecked={dream.type === selectedType}
           fieldError={errors.type}
           register={register}
         />

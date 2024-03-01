@@ -13,7 +13,7 @@ import {
 import { ROUTES } from '../routes/routes';
 import { convertType } from '../utils/convert-type';
 
-interface IDream {
+export interface IDream {
   dreamId: string;
   title: string;
   content: string;
@@ -44,7 +44,7 @@ export function MapDreams() {
     try {
       const response = await deleteDream(dreamId, userId, token);
       if (response?.status == 200) {
-        getAllDreamsByUser(userId, token).then((res) => setDreams(res?.data));
+        setDreams(dreams.filter((d) => d.dreamId !== dreamId));
       } else return [];
     } catch (error) {
       console.error(`couldn't delete dream ${error}`);
@@ -67,7 +67,9 @@ export function MapDreams() {
             <StyledIconButton
               aria-label='Press to edit dream'
               onClick={() =>
-                navigate(ROUTES.UPDATE_DREAM, { state: { dream } })
+                navigate(ROUTES.UPDATE_DREAM, {
+                  state: { dream },
+                })
               }
             >
               <FaPencilAlt />

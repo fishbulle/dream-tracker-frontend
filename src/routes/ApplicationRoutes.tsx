@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { LandingPage } from '../views/LandingPage';
 import { LoginView } from '../views/LoginView';
 import { RegisterView } from '../views/RegisterView';
@@ -12,6 +12,7 @@ import { UpdateDreamForm } from '../components/forms/UpdateDreamForm';
 
 export const ApplicationRoutes = () => {
   const { isAuthenticated } = useContext(AuthContext);
+  const location = useLocation();
 
   return (
     <>
