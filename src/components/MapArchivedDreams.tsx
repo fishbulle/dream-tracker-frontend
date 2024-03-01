@@ -45,7 +45,7 @@ export function MapDreams() {
       const response = await deleteDream(dreamId, userId, token);
       if (response?.status == 200) {
         getAllDreamsByUser(userId, token).then((res) => setDreams(res?.data));
-      } else return console.log('whoops ..');
+      } else return [];
     } catch (error) {
       console.error(`couldn't delete dream ${error}`);
     }
