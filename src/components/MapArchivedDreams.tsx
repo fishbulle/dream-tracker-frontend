@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { getAllDreamsByUser } from '../api/api';
+import { deleteDream, getAllDreamsByUser } from '../api/api';
 import { FaPencilAlt } from 'react-icons/fa';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +30,6 @@ export function MapDreams() {
     const getPreviousDreams = async () => {
       try {
         const response = await getAllDreamsByUser(userId, token);
-
         if (response?.status == 200) return response.data;
         else return [];
       } catch (error) {
@@ -40,6 +39,17 @@ export function MapDreams() {
 
     getPreviousDreams().then((data) => setDreams(data));
   }, [token, userId]);
+
+  const handleDelete = async (dreamId: string) => {
+    try {
+      const response = await deleteDream(dreamId, userId, token);
+      if (response?.status == 200) {
+        getAllDreamsByUser(userId, token).then((res) => setDreams(res?.data));
+      } else return console.log('whoops ..');
+    } catch (error) {
+      console.error(`couldn't delete dream ${error}`);
+    }
+  };
 
   return (
     <>
@@ -64,7 +74,7 @@ export function MapDreams() {
             </StyledIconButton>
             <StyledIconButton
               aria-label='Press to delete dream'
-              onClick={() => console.log('Deleted.. but not really (yet)')}
+              onClick={() => handleDelete(dream.dreamId)}
             >
               <FaRegTrashCan />
             </StyledIconButton>
