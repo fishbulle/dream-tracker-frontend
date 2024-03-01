@@ -14,7 +14,7 @@ export const messages = {
       content: 'content is required',
       contentDescription: 'what happened in the dream?',
       category: 'category is required',
-      nightmare: 'was it a nightmare?',
+      nightmare: 'what kind of dream was it?',
     },
   },
   errors: {

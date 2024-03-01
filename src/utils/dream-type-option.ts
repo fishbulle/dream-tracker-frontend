@@ -4,6 +4,6 @@ type option = {
 };
 
 export const dreamOptions: option[] = [
-  { value: 'NIGHTMARE', label: 'yes' },
-  { value: 'NOT_NIGHTMARE', label: 'no' },
+  { value: 'NIGHTMARE', label: 'nightmare' },
+  { value: 'NOT_NIGHTMARE', label: 'normal' },
 ];

@@ -61,7 +61,7 @@ export function FormField<T extends FieldValues>({
             className={
               fieldError || customError != undefined
                 ? 'form-control is-invalid'
-                : 'form-control border-dark-purple'
+                : 'form-control'
             }
             id={fieldName}
             placeholder={placeholder}
@@ -75,10 +75,11 @@ export function FormField<T extends FieldValues>({
   function getRadioButtonField() {
     return (
       <>
+        <br />
         {options?.map((option) => (
           <div
             key={option.value}
-            className='form-check form-check-inline px-0 my-1'
+            className='form-check form-check-inline p-0 my-1'
           >
             <input
               {...register(fieldName as Path<T>)}
