@@ -1,14 +1,18 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { GiDreamCatcher } from 'react-icons/gi';
-import { AuthContext } from '../../context/AuthContext';
 import '../../App.css';
+import { ROUTES } from '../../routes/routes';
 
-export function NavBar() {
-  const { username, isAuthenticated } = useContext(AuthContext);
+interface NavBarProps {
+  username: string;
+  isAuthenticated: boolean;
+}
+
+export const NavBar = (props: NavBarProps) => {
+  const { username, isAuthenticated } = props;
 
   return (
     <Navbar
@@ -19,7 +23,7 @@ export function NavBar() {
       className='mb-6'
     >
       <Container>
-        <Navbar.Brand as={Link} to='/'>
+        <Navbar.Brand as={Link} to={ROUTES.START}>
           <GiDreamCatcher /> dream tracker
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basṣc-navbar-nav' />
@@ -27,13 +31,13 @@ export function NavBar() {
           {isAuthenticated ? (
             <>
               <Nav className='me-auto'>
-                <Nav.Link as={Link} to='/dashboard'>
+                <Nav.Link as={Link} to={ROUTES.DASHBOARD}>
                   dashboard
                 </Nav.Link>
-                <Nav.Link as={Link} to='/newdream'>
+                <Nav.Link as={Link} to={ROUTES.NEW_DREAM}>
                   new dream
                 </Nav.Link>
-                <Nav.Link as={Link} to='/archive'>
+                <Nav.Link as={Link} to={ROUTES.ARCHIVE}>
                   archive
                 </Nav.Link>
                 <Nav.Link as={Link} to='/settings'>
@@ -44,7 +48,7 @@ export function NavBar() {
                 signed in as
                 <span className='fw-bold'>
                   <Link
-                    to='/dashboard'
+                    to={ROUTES.DASHBOARD}
                     style={{
                       color: 'inherit',
                       textDecoration: 'inherit',
@@ -57,10 +61,10 @@ export function NavBar() {
             </>
           ) : (
             <Nav className='me-auto'>
-              <Nav.Link as={Link} to='/register'>
+              <Nav.Link as={Link} to={ROUTES.REGISTER}>
                 register
               </Nav.Link>
-              <Nav.Link as={Link} to='/login'>
+              <Nav.Link as={Link} to={ROUTES.LOGIN}>
                 log in
               </Nav.Link>
             </Nav>
@@ -69,4 +73,4 @@ export function NavBar() {
       </Container>
     </Navbar>
   );
-}
+};

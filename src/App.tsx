@@ -3,11 +3,15 @@ import './App.css';
 import { Background } from './components/common/Background';
 import { NavBar } from './components/common/NavBar';
 import { ApplicationRoutes } from './routes/ApplicationRoutes';
+import { useContext } from 'react';
+import { AuthContext } from './context/AuthContext';
 
 function App() {
+  const { username, isAuthenticated } = useContext(AuthContext);
+
   return (
     <>
-      <NavBar />
+      <NavBar username={username} isAuthenticated={isAuthenticated} />
       <Background>
         <ApplicationRoutes />
       </Background>
