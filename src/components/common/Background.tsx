@@ -3,7 +3,7 @@ import purplesky from '../../assets/purplesky.jpg';
 
 type BackgroundProps = React.PropsWithChildren<unknown>;
 
-export function Background(props: BackgroundProps) {
+export const Background = (props: BackgroundProps) => {
   const { children } = props;
 
   return (
@@ -17,4 +17,4 @@ export function Background(props: BackgroundProps) {
       {children}
     </Container>
   );
-}
+};
