@@ -1,11 +1,11 @@
 import { Container } from 'react-bootstrap';
 import purplesky from '../../assets/purplesky.jpg';
 
-interface IProps {
-  children: React.ReactNode;
-}
+type BackgroundProps = React.PropsWithChildren<unknown>;
 
-export function Background({ children }: IProps) {
+export function Background(props: BackgroundProps) {
+  const { children } = props;
+
   return (
     <Container
       style={{
