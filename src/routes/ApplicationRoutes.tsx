@@ -12,7 +12,6 @@ import { UpdateDreamForm } from '../components/forms/UpdateDreamForm';
 
 export const ApplicationRoutes = () => {
   const { isAuthenticated } = useContext(AuthContext);
-  const location = useLocation();
 
   return (
     <>

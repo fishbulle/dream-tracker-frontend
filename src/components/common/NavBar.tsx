@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+import { ROUTES } from '../../routes/routes';
+import { Link } from 'react-router-dom';
 import { GiDreamCatcher } from 'react-icons/gi';
 import '../../App.css';
-import { ROUTES } from '../../routes/routes';
 
 interface NavBarProps {
   username: string;
