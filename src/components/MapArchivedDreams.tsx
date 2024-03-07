@@ -33,6 +33,12 @@ export function MapDreams() {
     getPreviousDreams().then((data) => setDreams(data));
   }, [token, userId]);
 
+  const handleUpdate = (dream: IDream) => {
+    navigate(ROUTES.UPDATE_DREAM, {
+      state: { dream },
+    });
+  };
+
   const handleDelete = async (dreamId: string) => {
     try {
       const response = await deleteDream(dreamId, userId, token);
@@ -59,11 +65,7 @@ export function MapDreams() {
           <ButtonDiv>
             <StyledIconButton
               aria-label='Press to edit dream'
-              onClick={() =>
-                navigate(ROUTES.UPDATE_DREAM, {
-                  state: { dream },
-                })
-              }
+              onClick={() => handleUpdate(dream)}
             >
               <FaPencilAlt />
             </StyledIconButton>
