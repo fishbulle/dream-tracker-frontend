@@ -12,14 +12,7 @@ import {
 } from '../styles/styles';
 import { ROUTES } from '../routes/routes';
 import { convertType } from '../utils/convert-type';
-
-export interface IDream {
-  dreamId: string;
-  title: string;
-  content: string;
-  category: string;
-  type: string;
-}
+import { IDream } from '../utils/dream';
 
 export function MapDreams() {
   const { token, userId } = useContext(AuthContext);

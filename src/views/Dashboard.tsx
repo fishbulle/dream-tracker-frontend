@@ -6,7 +6,7 @@ import { ROUTES } from '../routes/routes';
 import { messages } from '../utils/messages';
 import { RandomCatFact } from '../components/RandomCatFact';
 import { getAllDreamsByUser } from '../api/api';
-import { IDream } from '../components/MapArchivedDreams';
+import { IDream } from '../utils/dream';
 
 export function Dashboard() {
   const { username, token, userId } = useContext(AuthContext);
