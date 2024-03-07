@@ -86,7 +86,7 @@ export function FormField<T extends FieldValues>({
             <input
               {...register(fieldName as Path<T>)}
               type='radio'
-              value={option.value}
+              //value={option.value}
               defaultValue={option.value}
               defaultChecked={defaultChecked}
               id={`${fieldName}-${option.value}`}
