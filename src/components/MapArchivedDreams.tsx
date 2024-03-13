@@ -14,10 +14,16 @@ import { ROUTES } from '../routes/routes';
 import { convertType } from '../utils/convert-type';
 import { IDream } from '../utils/dream';
 import { color } from '../styles/colors';
+import { GenericModal } from './common/GenericModal';
 
 export function MapDreams() {
   const { token, userId } = useContext(AuthContext);
   const [dreams, setDreams] = useState<IDream[]>([]);
+  const [dreamId, setDreamId] = useState<string>('');
+  const [dreamTitle, setDreamTitle] = useState<string>('');
+  const [isSendingRequest, setIsSendingRequest] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const closeModal = () => setShowModal(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -40,11 +46,14 @@ export function MapDreams() {
     });
   };
 
-  const handleDelete = async (dreamId: string) => {
+  const handleDelete = async () => {
+    setIsSendingRequest(true);
     try {
       const response = await deleteDream(dreamId, userId, token);
       if (response?.status == 200) {
         setDreams(dreams.filter((d) => d.dreamId !== dreamId));
+        setIsSendingRequest(false);
+        closeModal();
       } else return [];
     } catch (error) {
       console.error(`couldn't delete dream ${error}`);
@@ -72,11 +81,23 @@ export function MapDreams() {
             </StyledIconButton>
             <StyledIconButton
               aria-label='Press to delete dream'
-              onClick={() => handleDelete(dream.dreamId)}
+              onClick={() => {
+                setDreamId(dream.dreamId);
+                setDreamTitle(dream.title);
+                setShowModal(true);
+              }}
             >
               <FaRegTrashCan />
             </StyledIconButton>
           </ButtonDiv>
+          <GenericModal
+            show={showModal}
+            onClose={closeModal}
+            title={dreamTitle}
+            body={'are you sure you want to delete this dream?'}
+            handleRequest={handleDelete}
+            isSendingRequest={isSendingRequest}
+          />
         </StyledDiv>
       ))}
     </>
