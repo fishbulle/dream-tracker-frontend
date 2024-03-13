@@ -7,4 +7,5 @@ export const color = {
   orange: '#FFBA86',
   red: '#f6635c',
   grey: '#c1bfbf',
+  translucent: 'rgba(250, 250, 250, 0.8)',
 };

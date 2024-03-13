@@ -4,7 +4,7 @@ import { color } from './colors';
 export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: rgba(250, 250, 250, 0.8);
+  background-color: ${color.translucent};
   padding: 50px;
   margin: 3em 10em;
   color: #000000;
@@ -39,8 +39,12 @@ export const StyledButton = styled.button`
   margin: 10px;
   &:hover {
     background-color: ${color.pink};
-    box-shadow: 2px 2px 5px black;
+    box-shadow: 1px 1px 3px black;
   }
+`;
+
+export const StyledButtonDelete = styled(StyledButton)`
+  background-color: ${color.red};
 `;
 
 export const StyledIconButton = styled.button`
