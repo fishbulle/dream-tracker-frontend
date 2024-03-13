@@ -5,6 +5,7 @@ export function UpdateDream() {
   return (
     <>
       <StyledWrapper>
+        <h1>update dream</h1>
         <UpdateDreamForm />
       </StyledWrapper>
     </>

@@ -53,7 +53,7 @@ export function UpdateDreamForm() {
   }
 
   return (
-    <StyledWrapper>
+    <>
       <form className='text-start' onSubmit={handleSubmit(onSubmit)}>
         {errorMessage && <div className='text-danger my-1'>{errorMessage}</div>}
         <FormField
@@ -95,6 +95,6 @@ export function UpdateDreamForm() {
 
         <StyledButton aria-label='Submit button'>update dream</StyledButton>
       </form>
-    </StyledWrapper>
+    </>
   );
 }

@@ -5,6 +5,7 @@ export function NewDream() {
   return (
     <>
       <StyledWrapper>
+        <h1>register a new dream</h1>
         <NewDreamForm />
       </StyledWrapper>
     </>
