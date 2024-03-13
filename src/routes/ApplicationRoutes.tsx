@@ -2,13 +2,13 @@ import { Route, Routes } from 'react-router-dom';
 import { LandingPage } from '../views/LandingPage';
 import { LoginView } from '../views/LoginView';
 import { RegisterView } from '../views/RegisterView';
-import { NewDream } from '../views/NewDream';
+import { NewDream } from '../views/NewDreamView';
 import { DreamArchive } from '../views/Archive';
 import { useContext } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { Dashboard } from '../views/Dashboard';
 import { ROUTES } from './routes';
-import { UpdateDreamForm } from '../components/forms/UpdateDreamForm';
+import { UpdateDream } from '../views/UpdateDreamView';
 
 export const ApplicationRoutes = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -24,7 +24,7 @@ export const ApplicationRoutes = () => {
             <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
             <Route path={ROUTES.NEW_DREAM} element={<NewDream />} />
             <Route path={ROUTES.ARCHIVE} element={<DreamArchive />} />
-            <Route path={ROUTES.UPDATE_DREAM} element={<UpdateDreamForm />} />
+            <Route path={ROUTES.UPDATE_DREAM} element={<UpdateDream />} />
           </>
         )}
       </Routes>
