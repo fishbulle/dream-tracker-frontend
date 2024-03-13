@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getCatFact } from '../api/api';
+import { StyledWrapper } from '../styles/styles';
+import { messages } from '../utils/messages';
 
 export function RandomCatFact() {
   const [catFact, setCatFact] = useState('');
@@ -21,7 +23,10 @@ export function RandomCatFact() {
 
   return (
     <>
-      <p>{catFact.toLowerCase()}</p>
+      <StyledWrapper>
+        <h2>{messages.dashboard.catFact}</h2>
+        <p>{catFact.toLowerCase()}</p>
+      </StyledWrapper>
     </>
   );
 }
