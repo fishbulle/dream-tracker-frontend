@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { color } from './colors';
 
 export const StyledWrapper = styled.div`
   display: flex;
@@ -11,8 +12,8 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledDiv = styled.div`
-  background-color: #1f1e1e;
-  color: #c1bfbf;
+  background-color: ${color.blackish};
+  color: ${color.grey};
   margin: 2em;
   padding-top: 2.5em;
   padding-bottom: 1em;
@@ -20,7 +21,7 @@ export const StyledDiv = styled.div`
 `;
 
 export const StyledInnerDiv = styled.div`
-  background-color: #1f1e1e;
+  background-color: ${color.blackish};
   max-width: 80%;
   padding: 1em;
   margin: auto;
@@ -33,23 +34,23 @@ export const ButtonDiv = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  background-color: #79155b;
+  background-color: ${color.purple};
   color: #ffffff;
   margin: 10px;
   &:hover {
-    background-color: #c23373;
+    background-color: ${color.pink};
     box-shadow: 2px 2px 5px black;
   }
 `;
 
 export const StyledIconButton = styled.button`
-  background-color: #1f1e1e;
+  background-color: ${color.blackish};
   color: #ffffff;
   margin: 10px;
   box-shadow: none;
   border: none;
   &:hover {
-    color: #f6635c;
+    color: ${color.red};
     box-shadow: none;
   }
 `;

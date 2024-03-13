@@ -7,7 +7,7 @@ import { messages } from '../utils/messages';
 import { RandomCatFact } from '../components/RandomCatFact';
 import { getAllDreamsByUser } from '../api/api';
 import { IDream } from '../utils/dream';
-import { colors } from '../styles/colors';
+import { color } from '../styles/colors';
 
 export function Dashboard() {
   const { username, token, userId } = useContext(AuthContext);
@@ -60,9 +60,9 @@ export function Dashboard() {
       <StyledWrapper>
         <h2>{messages.dashboard.stats}</h2>
         <p>
-          you have recorded {dreams.length} dreams where{' '}
-          {nightmares(dreams) + ' '}
-          are nightmares
+          you have recorded {dreams.length} dreams where
+          {' ' + nightmares(dreams) + ' '}
+          are nightmares.
         </p>
       </StyledWrapper>
       <StyledWrapper>
@@ -74,6 +74,6 @@ export function Dashboard() {
 }
 
 const usernameStyle: React.CSSProperties = {
-  color: colors.pink,
+  color: color.pink,
   fontWeight: 'bold',
 };

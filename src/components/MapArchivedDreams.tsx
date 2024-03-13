@@ -13,7 +13,7 @@ import {
 import { ROUTES } from '../routes/routes';
 import { convertType } from '../utils/convert-type';
 import { IDream } from '../utils/dream';
-import { colors } from '../styles/colors';
+import { color } from '../styles/colors';
 
 export function MapDreams() {
   const { token, userId } = useContext(AuthContext);
@@ -84,10 +84,10 @@ export function MapDreams() {
 }
 
 const categoryStyle: React.CSSProperties = {
-  color: colors.orange,
+  color: color.orange,
 };
 
 const nightmareStyle: React.CSSProperties = {
   fontStyle: 'italic',
-  color: colors.purple,
+  color: color.purple,
 };
