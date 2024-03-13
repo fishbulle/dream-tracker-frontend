@@ -1,10 +1,5 @@
 import { Modal } from 'react-bootstrap';
-import {
-  StyledButton,
-  StyledButtonDelete,
-  StyledInnerDiv,
-} from '../../styles/styles';
-import { color } from '../../styles/colors';
+import { StyledButton, StyledButtonDelete } from '../../styles/styles';
 
 interface IModal {
   title: string;
