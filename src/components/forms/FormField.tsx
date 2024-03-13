@@ -26,7 +26,6 @@ interface IFormField<T extends FieldValues> {
   checked?: boolean;
   min?: string;
   radioLabel?: string;
-  defaultChecked?: boolean;
 }
 
 export function FormField<T extends FieldValues>({
@@ -41,7 +40,6 @@ export function FormField<T extends FieldValues>({
   placeholder,
   defaultValue,
   min,
-  defaultChecked,
 }: IFormField<T>) {
   return (
     <>
@@ -86,9 +84,7 @@ export function FormField<T extends FieldValues>({
             <input
               {...register(fieldName as Path<T>)}
               type='radio'
-              //value={option.value}
-              defaultValue={option.value}
-              defaultChecked={defaultChecked}
+              value={option.value}
               id={`${fieldName}-${option.value}`}
               className={fieldError ? 'btn-check is-invalid' : 'btn-check'}
             />

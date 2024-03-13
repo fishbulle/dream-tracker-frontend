@@ -9,7 +9,6 @@ import { StyledButton, StyledWrapper } from '../../styles/styles';
 import { FormField } from './FormField';
 import { messages } from '../../utils/messages';
 import { ROUTES } from '../../routes/routes';
-import { dreamOptions } from '../../utils/dream-type-option';
 
 const schema = z.object({
   title: z.string(),
@@ -91,18 +90,6 @@ export function UpdateDreamForm() {
           inputType='text'
           defaultValue={dream.category}
           fieldError={errors.category}
-          register={register}
-        />
-
-        <FormField
-          fieldName='type'
-          label='type'
-          labelDescription={messages.form.dream.nightmare}
-          inputType='radio'
-          options={dreamOptions}
-          defaultValue={dream.type}
-          checked
-          fieldError={errors.type}
           register={register}
         />
 
