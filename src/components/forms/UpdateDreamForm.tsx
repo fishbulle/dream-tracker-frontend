@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { updateDream } from '../../api/api';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { StyledButton, StyledWrapper } from '../../styles/styles';
+import { StyledButton } from '../../styles/styles';
 import { FormField } from './FormField';
 import { messages } from '../../utils/messages';
 import { ROUTES } from '../../routes/routes';
