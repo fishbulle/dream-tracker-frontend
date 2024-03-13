@@ -45,6 +45,9 @@ export const StyledButton = styled.button`
 
 export const StyledButtonDelete = styled(StyledButton)`
   background-color: ${color.red};
+  &:hover {
+    background-color: ${color.orange};
+  }
 `;
 
 export const StyledIconButton = styled.button`

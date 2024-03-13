@@ -1,5 +1,9 @@
 import { Modal } from 'react-bootstrap';
-import { StyledButton } from '../../styles/styles';
+import {
+  StyledButton,
+  StyledButtonDelete,
+  StyledInnerDiv,
+} from '../../styles/styles';
 import { color } from '../../styles/colors';
 
 interface IModal {
@@ -18,17 +22,17 @@ export const GenericModal = (props: IModal) => {
     <Modal show={show} onCose={onClose} size='lg' centered className='modal'>
       <Modal.Header className='modal-header border-0 px-5 pt-5 text-center'>
         <Modal.Title>
-          <h3>{title}</h3>
+          <h2 style={{ fontWeight: 'bold' }}>{title}</h2>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className='modal-body px-5 pb-5'>
+      <Modal.Body className='modal-body px-5 pb-2'>
         <p>{body}</p>
       </Modal.Body>
-      <Modal.Footer className='border-0' style={{ color: color.blackish }}>
+      <Modal.Footer className='border-0'>
         <StyledButton onClick={onClose}>cancel</StyledButton>
-        <StyledButton onClick={handleRequest} disabled={isSendingRequest}>
+        <StyledButtonDelete onClick={handleRequest} disabled={isSendingRequest}>
           {isSendingRequest ? 'deleting...' : 'delete'}
-        </StyledButton>
+        </StyledButtonDelete>
       </Modal.Footer>
     </Modal>
   );
