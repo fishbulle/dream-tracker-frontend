@@ -23,10 +23,13 @@ export const messages = {
       'there already exists an account connected to this email',
     unknown: 'something went wrong, try again',
   },
-  ladningPage: {},
+  ladningPage: {
+    heading: 'hello and welcome to dream tracker',
+  },
   dashboard: {
     heading: 'welcome ',
     subHeading: 'what do you want to do?',
+    stats: 'statistics and numbers',
+    catFact: 'random cat fact of the day',
   },
-  archive: {},
 };
