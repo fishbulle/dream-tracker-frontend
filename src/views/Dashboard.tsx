@@ -46,7 +46,10 @@ export function Dashboard() {
   return (
     <>
       <StyledWrapper>
-        <h1>{messages.dashboard.heading + username}</h1>
+        <h1>
+          {messages.dashboard.heading}
+          <span style={usernameStyle}>{username}</span>
+        </h1>
         <h3>{messages.dashboard.subHeading}</h3>
         <ButtonDiv>
           <StyledButton onClick={newDream}>register new dream</StyledButton>
@@ -68,3 +71,8 @@ export function Dashboard() {
     </>
   );
 }
+
+const usernameStyle: React.CSSProperties = {
+  color: '#f6635c',
+  fontWeight: 'bold',
+};
