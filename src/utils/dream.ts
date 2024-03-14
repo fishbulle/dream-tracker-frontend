@@ -3,5 +3,7 @@ export interface IDream {
   title: string;
   content: string;
   category: string;
-  type: string;
+  type: DreamType;
 }
+
+export type DreamType = 'NIGHTMARE' | 'NOT_NIGHTMARE';
