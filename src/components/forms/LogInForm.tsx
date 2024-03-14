@@ -4,7 +4,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { AuthContext } from '../../context/AuthContext';
 import { logIn } from '../../api/api';
-import { FormField } from './FormField';
+import { FormField } from './input/FormField';
 import { useNavigate } from 'react-router-dom';
 import { StyledButton } from '../../styles/styles';
 import { messages } from '../../utils/messages';

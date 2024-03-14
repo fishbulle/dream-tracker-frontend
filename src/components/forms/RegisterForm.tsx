@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm, FieldValues } from 'react-hook-form';
 import { z } from 'zod';
 import { registerUser } from '../../api/api';
-import { FormField } from './FormField';
+import { FormField } from './input/FormField';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { StyledButton } from '../../styles/styles';
