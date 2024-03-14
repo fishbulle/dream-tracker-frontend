@@ -5,7 +5,7 @@ import { FieldValues, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { newDream } from '../../api/api';
 import { FormField } from './input/FormField';
-import { StyledButton } from '../../styles/styles';
+import { StyledButton, StyledButtonWarning } from '../../styles/styles';
 import { messages } from '../../utils/messages';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
@@ -100,6 +100,12 @@ export function NewDreamForm() {
         />
 
         <StyledButton aria-label='Submit button'>register dream</StyledButton>
+        <StyledButtonWarning
+          aria-label='Cancel button'
+          onClick={() => navigate(ROUTES.ARCHIVE)}
+        >
+          cancel
+        </StyledButtonWarning>
       </form>
     </>
   );

@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthContext';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { updateDream } from '../../api/api';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { StyledButton } from '../../styles/styles';
+import { StyledButton, StyledButtonWarning } from '../../styles/styles';
 import { FormField } from './input/FormField';
 import { messages } from '../../utils/messages';
 import { ROUTES } from '../../routes/routes';
@@ -94,6 +94,12 @@ export function UpdateDreamForm() {
         />
 
         <StyledButton aria-label='Submit button'>update dream</StyledButton>
+        <StyledButtonWarning
+          aria-label='Cancel button'
+          onClick={() => navigate(ROUTES.ARCHIVE)}
+        >
+          cancel
+        </StyledButtonWarning>
       </form>
     </>
   );

@@ -1,5 +1,5 @@
 import { Modal } from 'react-bootstrap';
-import { StyledButton, StyledButtonDelete } from '../../styles/styles';
+import { StyledButton, StyledButtonWarning } from '../../styles/styles';
 
 interface IModal {
   title: string;
@@ -25,9 +25,12 @@ export const GenericModal = (props: IModal) => {
       </Modal.Body>
       <Modal.Footer className='border-0'>
         <StyledButton onClick={onClose}>cancel</StyledButton>
-        <StyledButtonDelete onClick={handleRequest} disabled={isSendingRequest}>
+        <StyledButtonWarning
+          onClick={handleRequest}
+          disabled={isSendingRequest}
+        >
           {isSendingRequest ? 'deleting...' : 'delete'}
-        </StyledButtonDelete>
+        </StyledButtonWarning>
       </Modal.Footer>
     </Modal>
   );
