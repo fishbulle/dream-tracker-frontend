@@ -14,7 +14,6 @@ const schema = z.object({
   title: z.string(),
   content: z.string(),
   category: z.string(),
-  type: z.enum(['NIGHTMARE', 'NOT_NIGHTMARE']),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -39,7 +38,6 @@ export function UpdateDreamForm() {
         title: data.title,
         content: data.content,
         category: data.category,
-        type: data.type,
         userId,
         token,
         dreamId: dream.dreamId,
