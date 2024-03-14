@@ -11,11 +11,11 @@ export const SortDreamsByType = (props: Props) => {
 
   return (
     <div className='form-group mb-3 mt-3 d-flex flex-column align-items-center'>
-      <label htmlFor='statusSelect' className='mb-2'>
+      <label htmlFor='type select' className='mb-2'>
         filter by type
       </label>
       <select
-        id='statusSelect'
+        id='type select'
         className='form-control w-auto text-center'
         value={selectedType}
         onChange={handleChange}
