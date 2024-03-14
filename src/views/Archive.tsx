@@ -8,8 +8,6 @@ import { IDream } from '../utils/dream';
 export function DreamArchive() {
   const { token, userId } = useContext(AuthContext);
   const [dreams, setDreams] = useState<IDream[]>([]);
-  const [updateNeeded, setUpdateNeeded] = useState<boolean>(false);
-  const onUpdate = () => setUpdateNeeded((updateNeeded) => !updateNeeded);
 
   useEffect(() => {
     const getPreviousDreams = async () => {
@@ -22,15 +20,13 @@ export function DreamArchive() {
       }
     };
     getPreviousDreams().then((data) => setDreams(data));
-  }, [token, userId, updateNeeded]);
+  }, [token, userId]);
 
   return (
     <>
-      {/* TODO: add option to sort on nightmare/not nightmare
-          add pagination */}
       <StyledWrapper>
         <h1>dream archive</h1>
-        <MapDreams dreams={dreams} onUpdate={onUpdate} />
+        <MapDreams dreams={dreams} setDreams={setDreams} />
       </StyledWrapper>
     </>
   );

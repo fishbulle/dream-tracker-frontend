@@ -1,26 +1,24 @@
 import { ChangeEvent } from 'react';
 import { DreamType } from '../../../utils/dream';
 
-// type DreamType = 'NIGHTMARE' | 'NOT_NIGHTMARE';
-
 interface Props {
   selectedType: DreamType | undefined;
-  handleStatusChange: (event: ChangeEvent<HTMLSelectElement>) => void;
+  handleChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
 export const SortDreamsByType = (props: Props) => {
-  const { selectedType, handleStatusChange } = props;
+  const { selectedType, handleChange } = props;
 
   return (
-    <div className='form-group mb-3'>
-      <label htmlFor='statusSelect' className='fw-bold mb-1'>
+    <div className='form-group mb-3 mt-3 d-flex flex-column align-items-center'>
+      <label htmlFor='statusSelect' className='mb-2'>
         filter by type
       </label>
       <select
         id='statusSelect'
-        className='form-control'
+        className='form-control w-auto text-center'
         value={selectedType}
-        onChange={handleStatusChange}
+        onChange={handleChange}
       >
         <option value={''}>show all dreams</option>
         <option value={'NOT_NIGHTMARE' as DreamType}>normal</option>

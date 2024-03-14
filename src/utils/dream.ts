@@ -6,4 +6,4 @@ export interface IDream {
   type: DreamType;
 }
 
-export type DreamType = 'NIGHTMARE' | 'NOT_NIGHTMARE';
+export type DreamType = 'NIGHTMARE' | 'NOT_NIGHTMARE' | undefined;
