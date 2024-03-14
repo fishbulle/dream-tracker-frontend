@@ -93,6 +93,7 @@ export function UpdateDreamForm() {
 
         <StyledButton aria-label='Submit button'>update dream</StyledButton>
         <StyledButtonWarning
+          type='button'
           aria-label='Cancel button'
           onClick={() => navigate(ROUTES.ARCHIVE)}
         >

@@ -101,6 +101,7 @@ export function NewDreamForm() {
 
         <StyledButton aria-label='Submit button'>register dream</StyledButton>
         <StyledButtonWarning
+          type='button'
           aria-label='Cancel button'
           onClick={() => navigate(ROUTES.ARCHIVE)}
         >
