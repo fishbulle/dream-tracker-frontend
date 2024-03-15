@@ -60,3 +60,8 @@ export const StyledIconButton = styled.button`
     box-shadow: none;
   }
 `;
+
+export const StyledLogOutButton = styled(StyledIconButton)`
+  background-color: #000000;
+  margin: 0 0 0 3px;
+`;

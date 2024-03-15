@@ -5,6 +5,7 @@ import { ROUTES } from '../../routes/routes';
 import { Link } from 'react-router-dom';
 import { GiDreamCatcher } from 'react-icons/gi';
 import '../../App.css';
+import { LogOut } from '../LogOut';
 
 interface NavBarProps {
   username: string;
@@ -56,6 +57,7 @@ export const NavBar = (props: NavBarProps) => {
                   >
                     {' ' + username}
                   </Link>
+                  <LogOut />
                 </span>
               </Navbar.Text>
             </>
