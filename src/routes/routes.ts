@@ -6,4 +6,5 @@ export enum ROUTES {
   NEW_DREAM = '/newdream',
   ARCHIVE = '/archive',
   UPDATE_DREAM = '/updatedream',
+  SETTINGS = '/settings',
 }

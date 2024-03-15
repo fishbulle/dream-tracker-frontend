@@ -9,6 +9,7 @@ import { AuthContext } from '../context/AuthContext';
 import { Dashboard } from '../views/Dashboard';
 import { ROUTES } from './routes';
 import { UpdateDream } from '../views/UpdateDreamView';
+import { SettingsView } from '../views/SettingsView';
 
 export const ApplicationRoutes = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -25,6 +26,7 @@ export const ApplicationRoutes = () => {
             <Route path={ROUTES.NEW_DREAM} element={<NewDream />} />
             <Route path={ROUTES.ARCHIVE} element={<DreamArchive />} />
             <Route path={ROUTES.UPDATE_DREAM} element={<UpdateDream />} />
+            <Route path={ROUTES.SETTINGS} element={<SettingsView />} />
           </>
         )}
       </Routes>
