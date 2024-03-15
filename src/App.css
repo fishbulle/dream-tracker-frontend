@@ -22,11 +22,11 @@
 
 /* pagination button colors  */
 .active {
-    background-color: #FFBA86;
+    background-color: #f6635c;
     color: #FFFFFF;
 }
 
 .not-active {
-    background-color: #79155B;
+    background-color: #1f1e1e;
     color: #FFFFFF;
 }

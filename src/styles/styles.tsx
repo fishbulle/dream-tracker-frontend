@@ -7,7 +7,7 @@ export const StyledWrapper = styled.div`
   margin: 3em auto;
   color: #000000;
   border-radius: 10px;
-  max-width: 60vw;
+  max-width: 70vw;
 `;
 
 export const StyledDiv = styled.div`
