@@ -2,13 +2,12 @@ import styled from 'styled-components';
 import { color } from './colors';
 
 export const StyledWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
   background-color: ${color.translucent};
   padding: 50px;
-  margin: 3em 10em;
+  margin: 3em auto;
   color: #000000;
   border-radius: 10px;
+  max-width: 60vw;
 `;
 
 export const StyledDiv = styled.div`
