@@ -56,7 +56,6 @@ export function LogInForm() {
       className='my-3 my-md-5 px-4 text-start'
       onSubmit={handleSubmit(onSubmit)}
     >
-      {errorMessage && <div className='text-danger my-1'>{errorMessage}</div>}
       <FormField
         fieldName='email'
         label='email'
@@ -73,6 +72,7 @@ export function LogInForm() {
         customError={errorMessage}
         register={register}
       />
+      {errorMessage && <div className='text-danger my-1'>{errorMessage}</div>}
       <StyledButton>enter the realm of dreams</StyledButton>
     </form>
   );
