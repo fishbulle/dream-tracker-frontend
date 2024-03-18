@@ -1,5 +1,3 @@
-export const blackish = '#1f1e1e';
-// export const purple = '#79155B';
 export const color = {
   blackish: '#1f1e1e',
   purple: '#79155B',
