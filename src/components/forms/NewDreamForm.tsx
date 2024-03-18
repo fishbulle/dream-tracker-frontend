@@ -9,7 +9,7 @@ import { StyledButton, StyledButtonWarning } from '../../styles/styles';
 import { messages } from '../../utils/messages';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../routes/routes';
-import { dreamOptions } from '../../utils/dream-type-option';
+import { dreamOptions } from './input/dream-type-option';
 
 const schema = z.object({
   title: z.string().min(1, messages.form.dream.title),
